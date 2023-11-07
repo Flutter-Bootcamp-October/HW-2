@@ -59,43 +59,53 @@ class _SearchCityState extends State<SearchCity> {
                   future: getWeatherData(cityController.text),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      return Container(
-                        height: 100,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: snapshot.data!.current!.isDay == 0
-                                ? Colors.grey.shade100.withOpacity(0.1)
-                                : Colors.blue.withOpacity(0.5)),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    '${snapshot.data!.location!.country}',
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 18),
-                                  ),
-                                  Text(
-                                    '${snapshot.data!.current!.condition?.text}',
-                                    style:
-                                        const TextStyle(color: Colors.white70),
-                                  ),
-                                ],
-                              ),
-                              Text(
-                                '${snapshot.data!.current!.isDay}',
-                                style: const TextStyle(
-                                    fontSize: 30, fontWeight: FontWeight.bold),
-                              ),
-                              Image.network(
-                                  fit: BoxFit.fitHeight,
-                                  'https:${snapshot.data!.current!.condition?.icon}')
-                            ]),
+                      return InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => WeatherDetailsScreen(
+                                      weather: snapshot.data!)));
+                        },
+                        child: Container(
+                          height: 100,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: snapshot.data!.current!.isDay == 0
+                                  ? Colors.grey.shade100.withOpacity(0.1)
+                                  : Colors.blue.withOpacity(0.5)),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text(
+                                      '${snapshot.data!.location!.name},',
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 22),
+                                    ),
+                                    Text(
+                                      '${snapshot.data!.current!.condition?.text}',
+                                      style: const TextStyle(
+                                          fontSize: 18, color: Colors.white70),
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  '${snapshot.data!.current!.tempC}',
+                                  style: const TextStyle(
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Image.network(
+                                    fit: BoxFit.fitHeight,
+                                    'https:${snapshot.data!.current!.condition?.icon}')
+                              ]),
+                        ),
                       );
                     } else if (snapshot.hasError) {
                       const Text("error");

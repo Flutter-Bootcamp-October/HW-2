@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:weather_app/screens/home_screen.dart';
+import 'package:weather_app/screens/navigation_dot_Screen.dart';
 import 'package:weather_app/screens/weather_details_screen.dart';
 import 'package:weather_app/services/api_server.dart';
 
@@ -16,8 +17,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            useMaterial3: true,
+            useMaterial3: false,
             textTheme: const TextTheme(
               bodyLarge: TextStyle(),
               bodyMedium: TextStyle(),
@@ -26,6 +28,6 @@ class MainApp extends StatelessWidget {
               bodyColor: Colors.white,
             ),
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.white)),
-        home: const SearchCity());
+        home: const NavigationScreen());
   }
 }
