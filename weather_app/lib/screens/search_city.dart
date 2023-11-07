@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/screens/weather_details_screen.dart';
 import 'package:weather_app/services/api_server.dart';
 
 class SearchCity extends StatefulWidget {
@@ -10,6 +11,7 @@ class SearchCity extends StatefulWidget {
   State<SearchCity> createState() => _SearchCityState();
 }
 
+////add to search list and display down the search bar in this screen
 class _SearchCityState extends State<SearchCity> {
   TextEditingController cityController = TextEditingController(text: 'London');
   @override
@@ -40,26 +42,36 @@ class _SearchCityState extends State<SearchCity> {
             future: getWeatherData(cityController.text),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Card(
-                    color: const Color.fromARGB(255, 36, 110, 110),
-                    child: Column(children: [
-                      Text('${snapshot.data!.location!.country}'),
-                      Text('C ${snapshot.data!.current!.tempC}'),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text('${snapshot.data!.current!.condition?.text}'),
-                          const ImageIcon(
-                            color: Colors.white,
-                            NetworkImage(
-                                'https://cdn.weatherapi.com/weather/64x64/day/116.png'),
-                            size: 40,
-                          )
-                        ],
-                      )
-                    ]),
+                return InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => WeatherDetailsScreen(
+                                  weather: snapshot.data!,
+                                )));
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child:  Card(
+                      color: const Color.fromARGB(255, 36, 110, 110),
+                      child: Column(children: [
+                        Text('${snapshot.data!.location!.country}'),
+                        Text('C ${snapshot.data!.current!.tempC}'),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text('${snapshot.data!.current!.condition?.text}'),
+                            const ImageIcon(
+                              color: Colors.white,
+                              NetworkImage(
+                                  'https://cdn.weatherapi.com/weather/64x64/day/116.png'),
+                              size: 40,
+                            )
+                          ],
+                        )
+                      ]),
+                    ),
                   ),
                 );
               } else if (snapshot.hasError) {

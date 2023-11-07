@@ -6,7 +6,6 @@ import 'package:weather_app/services/api_server.dart';
 
 import 'package:weather_app/screens/search_city.dart';
 
-
 void main() {
   runApp(const MainApp());
 }
@@ -16,13 +15,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
-  
     return const MaterialApp(
       home: SearchCity(),
     );
-
-
   }
 }

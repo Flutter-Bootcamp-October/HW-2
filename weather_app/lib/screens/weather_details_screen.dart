@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/model/weather.dart';
 
 class WeatherDetailsScreen extends StatefulWidget {
-  const WeatherDetailsScreen({super.key,});
-  // final Weather weather;
+  const WeatherDetailsScreen({
+    super.key,
+    required this.weather,
+  });
+  final Weather weather;
   @override
   State<WeatherDetailsScreen> createState() => _WeatherDetailsScreenState();
 }
 
 class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
   @override
-  bool day = true;
-
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: day
+      backgroundColor: widget.weather.current!.isDay == 1
           ? const Color.fromARGB(138, 13, 72, 161)
           : const Color.fromARGB(117, 187, 222, 251),
       appBar: AppBar(
-          title: Text("City name"),
           leading: Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
@@ -29,11 +29,28 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
               color: Colors.red,
             ),
           ]),
-      body: Column(
-        //display city name, weather condition, image, humidity, feelslike,uv, wind_dir, degree, pressure
-        children: [
-          // Image.network(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Center(
+          child: Column(
+            //display city name, weather condition, image, humidity, feelslike,uv, wind_dir, degree, pressure
+            children: [
+              Row(
+                children: [
+                  Icon(Icons.location_on),
+                  Text(
+                      "${widget.weather.location!.name},${widget.weather.location!.region}"),
+                  Spacer(),
+                  Text("${widget.weather.current!.lastUpdated}")
+                ],
+              ),
+
+              Image.network("${widget.weather.current!.condition!.icon}"),
+              Text("${widget.weather.current!.tempC}")
+              // Image.network(),
+            ],
+          ),
+        ),
       ),
     );
   }
