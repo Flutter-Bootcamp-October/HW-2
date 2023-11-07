@@ -10,6 +10,21 @@ class WeatherDetailsScreen extends StatefulWidget {
 class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      body: Column(
+        //display city name, weather condition, image, humidity, feelslike,uv, wind_dir, degree, pressure
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              //add to favourite and display on home screen
+            },
+            child: Icon(
+              Icons.favorite_border_outlined,
+              color: Colors.red,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
