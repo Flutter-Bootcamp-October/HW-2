@@ -72,7 +72,7 @@ class Location {
 class Current {
   int? lastUpdatedEpoch;
   String? lastUpdated;
-  int? tempC;
+  double? tempC;
   double? tempF;
   int? isDay;
   Condition? condition;
@@ -80,17 +80,17 @@ class Current {
   double? windKph;
   int? windDegree;
   String? windDir;
-  int? pressureMb;
+  double? pressureMb;
   double? pressureIn;
-  int? precipMm;
-  int? precipIn;
+  double? precipMm;
+  double? precipIn;
   int? humidity;
   int? cloud;
   double? feelslikeC;
-  int? feelslikeF;
-  int? visKm;
-  int? visMiles;
-  int? uv;
+  double? feelslikeF;
+  double? visKm;
+  double? visMiles;
+  double? uv;
   double? gustMph;
   double? gustKph;
 

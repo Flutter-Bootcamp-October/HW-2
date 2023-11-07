@@ -10,7 +10,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    getWeatherData('paris');
+    ApiService().getWeatherData('London');
     return const MaterialApp(
       home: Scaffold(
         body: Center(
