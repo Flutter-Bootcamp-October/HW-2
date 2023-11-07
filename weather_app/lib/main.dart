@@ -15,8 +15,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: SearchCity(),
-    );
+    return MaterialApp(
+        theme: ThemeData(
+            useMaterial3: true,
+            textTheme: const TextTheme(
+              bodyLarge: TextStyle(),
+              bodyMedium: TextStyle(),
+              bodySmall: TextStyle(),
+            ).apply(
+              bodyColor: Colors.white,
+            ),
+            colorScheme: ColorScheme.fromSeed(seedColor: Colors.white)),
+        home: const SearchCity());
   }
 }

@@ -17,77 +17,95 @@ class _SearchCityState extends State<SearchCity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: const Color(0xff141441),
         body: SafeArea(
-            child: Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        TextField(
-          autofocus: false,
-          decoration: InputDecoration(
-            fillColor: const Color.fromARGB(255, 197, 244, 245),
-            filled: true,
-            label: const Text('Enter name of the city'),
-            hintText: 'London',
-            enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-                borderSide: BorderSide.none),
-            focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(15),
-                borderSide: BorderSide.none),
-          ),
-          controller: cityController,
-        ),
-        FutureBuilder(
-            future: getWeatherData(cityController.text),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => WeatherDetailsScreen(
-                                  weather: snapshot.data!,
-                                )));
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    child:  Card(
-                      color: const Color.fromARGB(255, 36, 110, 110),
-                      child: Column(children: [
-                        Text('${snapshot.data!.location!.country}'),
-                        Text('C ${snapshot.data!.current!.tempC}'),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text('${snapshot.data!.current!.condition?.text}'),
-                            const ImageIcon(
-                              color: Colors.white,
-                              NetworkImage(
-                                  'https://cdn.weatherapi.com/weather/64x64/day/116.png'),
-                              size: 40,
-                            )
-                          ],
-                        )
-                      ]),
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(
+                height: 70,
+              ),
+              TextField(
+                autofocus: false,
+                decoration: InputDecoration(
+                  fillColor: Colors.grey.shade100.withOpacity(0.1),
+                  filled: true,
+                  hintText: 'London',
+                  suffix: IconButton(
+                    icon: const Icon(
+                      Icons.search,
+                      color: Colors.white60,
                     ),
+                    onPressed: () {
+                      cityController;
+                      setState(() {});
+                    },
                   ),
-                );
-              } else if (snapshot.hasError) {
-                const Text("error");
-              }
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }),
-        ElevatedButton(
-            onPressed: () {
-              cityController = cityController;
-              setState(() {});
-            },
-            child: const Text('Search'))
-      ],
-    )));
+                  enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide.none),
+                  focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(25),
+                      borderSide: BorderSide.none),
+                ),
+                controller: cityController,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              FutureBuilder(
+                  future: getWeatherData(cityController.text),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Container(
+                        height: 100,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: snapshot.data!.current!.isDay == 0
+                                ? Colors.grey.shade100.withOpacity(0.1)
+                                : Colors.blue.withOpacity(0.5)),
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Text(
+                                    '${snapshot.data!.location!.country}',
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 18),
+                                  ),
+                                  Text(
+                                    '${snapshot.data!.current!.condition?.text}',
+                                    style:
+                                        const TextStyle(color: Colors.white70),
+                                  ),
+                                ],
+                              ),
+                              Text(
+                                '${snapshot.data!.current!.isDay}',
+                                style: const TextStyle(
+                                    fontSize: 30, fontWeight: FontWeight.bold),
+                              ),
+                              Image.network(
+                                  fit: BoxFit.fitHeight,
+                                  'https:${snapshot.data!.current!.condition?.icon}')
+                            ]),
+                      );
+                    } else if (snapshot.hasError) {
+                      const Text("error");
+                    }
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }),
+            ],
+          ),
+        )));
   }
 }
