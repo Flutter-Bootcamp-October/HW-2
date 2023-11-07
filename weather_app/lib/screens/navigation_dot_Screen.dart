@@ -48,7 +48,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
               selectedColor: const Color(0xff233b67),
               unselectedColor: const Color(0xff233b67)),
           DotNavigationBarItem(
-              icon: const Icon(Icons.search_outlined),
+              icon: const Icon(Icons.favorite_border),
               selectedColor: const Color(0xff233b67),
               unselectedColor: const Color(0xff233b67)),
           DotNavigationBarItem(
