@@ -61,9 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 List response =
                     await getWeatherOf(searchController.text ?? "Riyadh");
                 if (response[0] == "OK") {
-                  print("hi Raffal");
-                  currentCity = response[1];
-                  //push to details screen
+                  currentCity = response[1] as Weather;
                 } else {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text(response[0])));
