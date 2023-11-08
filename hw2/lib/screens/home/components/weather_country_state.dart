@@ -4,7 +4,6 @@ import 'package:hw2/extentions/size_extention.dart';
 import 'package:hw2/main.dart';
 
 import '../../manage_city/manage_city_screen.dart';
-import '../home_screen.dart';
 
 class WeatherCountryState extends StatefulWidget {
   const WeatherCountryState({
@@ -59,25 +58,28 @@ class _WeatherCountryStateState extends State<WeatherCountryState> {
         Center(
           child: Image.asset(
             (defaultCountry?.current?.isDay == 0)
-                ? "assets/images/weather_status/night.png"
+                ? "assets/images/weather_status/night_transparent.png"
                 : "assets/images/weather_status/sunny.png",
             scale: 4,
           ),
-        ),
-        //TODO: FIX
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Text("Time: ${defaultCountry?.location?.localtime}"),
-            Text("Humidity: ${defaultCountry?.current?.humidity}"),
-          ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Text(
-                "Weather Condition: ${defaultCountry?.current?.condition?.text}"),
+              "Time:${defaultCountry?.location?.localtime!.substring(defaultCountry!.location!.localtime!.length - 5)}",
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            Text(
+              "Humidity: ${defaultCountry?.current?.humidity}",
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+            ),
           ],
+        ),
+        const SizedBox(height: 10),
+        Text(
+          "Weather Condition: ${defaultCountry?.current?.condition?.text}",
+          style: const TextStyle(color: Colors.white, fontSize: 20),
         ),
       ],
     );

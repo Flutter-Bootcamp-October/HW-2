@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hw2/bottom_nav_bar.dart';
 import 'package:hw2/data/global.dart';
-import 'package:hw2/screens/home/home_screen.dart';
+
 import 'package:hw2/services/weather_api.dart';
 
 import 'models/weather_model.dart';

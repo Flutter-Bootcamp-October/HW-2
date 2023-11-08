@@ -21,6 +21,7 @@ class SearchTextField extends StatelessWidget {
         height: 40,
         width: context.getWidth() * .9,
         child: TextField(
+          controller: controller,
           onChanged: onChangedFunc,
           enabled: isEnabled,
           keyboardType: TextInputType.text,

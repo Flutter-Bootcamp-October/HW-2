@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hw2/data/colors.dart';
-import 'package:hw2/extentions/size_extention.dart';
-import 'package:hw2/screens/home/home_screen.dart';
 
-import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:hw2/screens/home/home_screen.dart';
 
 import 'package:flutter/rendering.dart';
 

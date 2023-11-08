@@ -3,9 +3,6 @@ import 'package:hw2/data/colors.dart';
 import 'package:hw2/data/global.dart';
 import 'package:hw2/extentions/size_extention.dart';
 import 'package:hw2/main.dart';
-import 'package:hw2/models/weather_model.dart';
-
-import 'customSwitch.dart';
 
 class WeatherForecastRow extends StatelessWidget {
   const WeatherForecastRow({
@@ -124,19 +121,25 @@ class WeatherForecastRow extends StatelessWidget {
                                           radius: 25,
                                           foregroundImage: AssetImage((isDay ==
                                                   1)
-                                              ? "assets/images/weather_status/sunny.png"
-                                              : "assets/images/weather_status/night.png"),
+                                              ? "assets/images/weather_status/sunny_transparent.png"
+                                              : "assets/images/weather_status/night_transparent.png"),
                                         ),
                                       ),
                                     ),
                                     const SizedBox(height: 8),
-                                    Text("$temp°"),
+                                    Text(
+                                      "$temp°",
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w400),
+                                    ),
                                   ],
                                 );
                               });
                         }),
                   ),
-                  const CustomSwitch(),
+                  // const CustomSwitch(),
                 ],
               ),
             ),

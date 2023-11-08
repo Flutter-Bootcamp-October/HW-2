@@ -1,12 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:hw2/data/colors.dart';
 import 'package:hw2/data/global.dart';
 import 'package:hw2/extentions/size_extention.dart';
-import 'package:hw2/main.dart';
 import 'package:hw2/screens/manage_city/components/search_text_field.dart';
-// import country_state_city package
 import 'package:country_state_city/country_state_city.dart' as cities;
 import 'package:hw2/services/weather_api.dart';
 
@@ -22,6 +18,7 @@ TextEditingController controller = TextEditingController();
 class _SearchScreenState extends State<SearchScreen> {
   int selectedIndex = -1;
   List<cities.City>? allCities = [];
+  List search = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +42,18 @@ class _SearchScreenState extends State<SearchScreen> {
                 title: SearchTextField(
                   isEnabled: true,
                   controller: controller,
-                  onChangedFunc: (value) {},
+                  onChangedFunc: (value) {
+                    final suggestions = allCities!.where(
+                      (element) {
+                        final cityName = element.name;
+                        final input = value.toLowerCase();
+                        return cityName.contains(input);
+                      },
+                    ).toList();
+                    setState(() {
+                      search = suggestions;
+                    });
+                  },
                 ),
               ),
               FutureBuilder(
@@ -55,18 +63,28 @@ class _SearchScreenState extends State<SearchScreen> {
                     if (snapshot.hasData) {
                       return Wrap(
                         children: [
-                          ...List.generate(
-                              20,
-                              (index) => InkWell(
-                                  onTap: () {
-                                    selectedIndex = index;
-                                    setState(() {});
-                                  },
-                                  child: Chip(
-                                      backgroundColor: (selectedIndex == index)
-                                          ? colorsSwatch[2]
-                                          : colorsSwatch[7],
-                                      label: Text(snapshot.data![index].name))))
+                          SizedBox(
+                            height: context.getHeight(),
+                            child: ListView.builder(
+                              itemCount: (search.isEmpty)
+                                  ? snapshot.data!.length
+                                  : search.length,
+                              itemBuilder: (context, index) => InkWell(
+                                onTap: () {
+                                  selectedIndex = index;
+                                  setState(() {});
+                                },
+                                child: Chip(
+                                  backgroundColor: (selectedIndex == index)
+                                      ? colorsSwatch[2]
+                                      : colorsSwatch[7],
+                                  label: Text((search.isEmpty)
+                                      ? snapshot.data![index].name
+                                      : "${search[index].name}"),
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       );
                     } else {
@@ -83,14 +101,13 @@ class _SearchScreenState extends State<SearchScreen> {
           final add = allCities;
           bool exists = false;
 
-          if (selectedIndex == -1) {
-            ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text("Please select a city")));
+          if (controller.text.isEmpty) {
+            await addByChips(context, add, exists);
           } else {
             for (var item in listOfCountries.value) {
               if (item.location!.name!
                   .toLowerCase()
-                  .contains(add![selectedIndex].name.toLowerCase())) {
+                  .contains(controller.text)) {
                 exists = true;
               }
             }
@@ -98,12 +115,41 @@ class _SearchScreenState extends State<SearchScreen> {
               ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("City Exists in your list")));
             } else {
-              final city = await getCityByName(add![selectedIndex].name);
-              listOfCountries.value.add(city);
+              final city = await getCityByName(controller.text);
+              if (city.runtimeType == String) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Please Enter a valid city name")));
+              } else {
+                listOfCountries.value.add(city);
+              }
             }
+            controller.clear();
           }
         },
       ),
     );
+  }
+
+  Future<void> addByChips(
+      BuildContext context, List<cities.City>? add, bool exists) async {
+    if (selectedIndex == -1) {
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("Please select a city")));
+    } else {
+      for (var item in listOfCountries.value) {
+        if (item.location!.name!
+            .toLowerCase()
+            .contains(add![selectedIndex].name.toLowerCase())) {
+          exists = true;
+        }
+      }
+      if (exists) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text("City Exists in your list")));
+      } else {
+        final city = await getCityByName(add![selectedIndex].name);
+        listOfCountries.value.add(city);
+      }
+    }
   }
 }

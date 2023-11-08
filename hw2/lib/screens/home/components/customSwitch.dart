@@ -17,7 +17,7 @@ class _CustomSwitchState extends State<CustomSwitch> {
       children: [
         CircleAvatar(
           radius: 4,
-          backgroundColor: isWeek ? Colors.white : colorsSwatch[2],
+          backgroundColor: isWeek ? colorsSwatch[2] : Colors.white,
         ),
         Column(
           children: [
@@ -35,7 +35,7 @@ class _CustomSwitchState extends State<CustomSwitch> {
         ),
         CircleAvatar(
           radius: 4,
-          backgroundColor: isWeek ? colorsSwatch[2] : Colors.white,
+          backgroundColor: isWeek ? Colors.white : colorsSwatch[2],
         ),
       ],
     );

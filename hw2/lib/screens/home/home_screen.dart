@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hw2/data/colors.dart';
 import 'package:hw2/extentions/size_extention.dart';
-import 'package:hw2/models/weather_model.dart';
-import 'package:hw2/services/weather_api.dart';
 
 import 'components/weather_country_state.dart';
 import 'components/weather_forecast_row.dart';

@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hw2/data/colors.dart';
 import 'package:hw2/data/global.dart';
-import 'package:hw2/extentions/size_extention.dart';
 import 'package:hw2/main.dart';
 import 'package:hw2/screens/manage_city/search_screen.dart';
 
-import '../../services/weather_api.dart';
 import 'components/search_text_field.dart';
 
 class ManageCityScreen extends StatefulWidget {
@@ -85,37 +83,40 @@ class _ManageCityScreenState extends State<ManageCityScreen> {
                                 Expanded(
                                   flex: 3,
                                   child: Column(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "${country.location!.name}",
                                         style: const TextStyle(
+                                            fontSize: 25,
                                             color: Colors.white,
-                                            fontSize: 18,
                                             fontWeight: FontWeight.w500),
                                       ),
                                       const SizedBox(height: 12),
                                       Text(
                                         "${country.current!.condition!.text}",
                                         style: const TextStyle(
-                                            color: Colors.white),
+                                            fontSize: 18, color: Colors.white),
                                       ),
-                                      const SizedBox(height: 12),
                                     ],
                                   ),
                                 ),
                                 Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Text(
-                                      "${country.current!.tempC}",
-                                      style:
-                                          const TextStyle(color: Colors.white),
+                                      "${country.current!.tempC}°",
+                                      style: const TextStyle(
+                                          fontSize: 25, color: Colors.white),
                                     ),
                                     Text(
                                       "Humidity: ${country.current!.humidity}",
-                                      style:
-                                          const TextStyle(color: Colors.white),
+                                      style: const TextStyle(
+                                          fontSize: 18, color: Colors.white),
                                     ),
                                   ],
                                 ),
