@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/model/weather.dart';
 import 'package:weather_app/screens/weather_details_screen.dart';
 import 'package:weather_app/services/api_server.dart';
+
+import '../components/city_container.dart';
 
 class SearchCity extends StatefulWidget {
   const SearchCity({
@@ -67,44 +70,14 @@ class _SearchCityState extends State<SearchCity> {
                                   builder: (context) => WeatherDetailsScreen(
                                       weather: snapshot.data!)));
                         },
-                        child: Container(
-                          height: 100,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: snapshot.data!.current!.isDay == 0
-                                  ? Colors.grey.shade100.withOpacity(0.1)
-                                  : Colors.blue.withOpacity(0.5)),
-                          child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Text(
-                                      '${snapshot.data!.location!.name},',
-                                      style: const TextStyle(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 22),
-                                    ),
-                                    Text(
-                                      '${snapshot.data!.current!.condition?.text}',
-                                      style: const TextStyle(
-                                          fontSize: 18, color: Colors.white70),
-                                    ),
-                                  ],
-                                ),
-                                Text(
-                                  '${snapshot.data!.current!.tempC}',
-                                  style: const TextStyle(
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                Image.network(
-                                    fit: BoxFit.fitHeight,
-                                    'https:${snapshot.data!.current!.condition?.icon}')
-                              ]),
+                        child: CityContainer(
+                          condetion: snapshot.data!.current!.isDay == 0,
+                          cityName: '${snapshot.data!.location!.name}',
+                          weatherCondetion:
+                              '${snapshot.data!.current!.condition?.text}',
+                          temp: '${snapshot.data!.current!.tempC}',
+                          iconURL:
+                              'https:${snapshot.data!.current!.condition?.icon}',
                         ),
                       );
                     } else if (snapshot.hasError) {

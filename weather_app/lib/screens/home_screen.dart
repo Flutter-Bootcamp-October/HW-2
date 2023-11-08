@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/data/globally.dart';
 import 'package:weather_app/model/weather.dart';
+import 'package:weather_app/screens/search_city.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -34,7 +36,19 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text("Weather App"),
       ),
       body: Column(
-        children: [Text("Favourite ")],
+        children: [
+          Text("Favourite "),
+          // ListView.separated(
+          //   shrinkWrap: true,
+          //   itemBuilder: (context, index) {
+          //     return 0
+          //   },
+          //   itemCount: favouriteList.length,
+          //   separatorBuilder: (BuildContext context, int index) => SizedBox(
+          //     height: 8,
+          //   ),
+          // ),
+        ],
       ),
     );
   }
