@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weathet_app/models/weather.dart';
 import 'package:weathet_app/screens/detials_screen.dart';
+import 'package:lottie/lottie.dart';
 
 class CardsWeather extends StatelessWidget {
   const CardsWeather({
@@ -15,7 +16,7 @@ class CardsWeather extends StatelessWidget {
     return city != null
         ? SizedBox(
             height: 130,
-            width: 370,
+            width: 350,
             child: InkWell(
               onTap: () {
                 Navigator.push(
@@ -26,75 +27,81 @@ class CardsWeather extends StatelessWidget {
                       ),
                     ));
               },
-              child: Card(
-                color: city.current!.isDay == 1 ? Colors.amber : Colors.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
-                ),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
+              child: Stack(
+                children: [
+                  Card(
+                    color: city.current!.isDay == 1
+                        ? Color(0xff536F9E)
+                        : Color(0xff21263C),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5, horizontal: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                city.location!.name ?? "",
-                                style: const TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w900,
-                                    color: Colors.white),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    city.location!.name ?? "",
+                                    style: const TextStyle(
+                                        fontSize: 30,
+                                        fontWeight: FontWeight.w900,
+                                        color: Colors.white),
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Text(
+                                    city.location!.localtime ?? "",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.white),
+                                  ),
+                                ],
                               ),
-                              const Text(
-                                "10:30pm",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.white),
+                              Text(
+                                city.current!.tempC.toString() ?? "",
+                                style: const TextStyle(
+                                    fontSize: 50, color: Colors.white),
                               ),
                             ],
                           ),
                           const SizedBox(
-                            width: 110,
+                            height: 25,
                           ),
-                          Text(
-                            city.current!.tempC.toString() ?? "",
-                            style: const TextStyle(
-                                fontSize: 50, color: Colors.white),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(city.current!.condition!.text ?? "",
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white,
+                                      fontSize: 16)),
+                            ],
                           ),
                         ],
                       ),
-                      const SizedBox(
-                        height: 25,
-                      ),
-                      Row(
-                        children: [
-                          Text(city.current!.condition!.text ?? "",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white)),
-                          const SizedBox(
-                            width: 160,
-                          ),
-                          const Text("H:30",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white)),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          const Text("L:18",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white)),
-                        ],
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  Positioned(
+                      right: 100,
+                      top: 25,
+                      child: SizedBox(
+                          height: 100,
+                          width: 100,
+                          child: city.current!.isDay == 1
+                              ? Lottie.asset(
+                                  "assets/Animation - 1699476919686.json")
+                              : Lottie.asset(
+                                  "assets/Animation - 1699477393102.json")))
+                ],
               ),
             ),
           )

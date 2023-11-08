@@ -17,7 +17,7 @@ class HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        backgroundColor: const Color.fromARGB(255, 230, 205, 205),
+        backgroundColor: Colors.black,
         body: Column(children: [
           const TitleHome(),
           const Search(),
@@ -25,7 +25,7 @@ class HomeScreenState extends State<HomeScreen> {
               ? const CircularProgressIndicator()
               : SizedBox(
                   height: MediaQuery.of(context).size.height * 0.7,
-                  width: MediaQuery.of(context).size.width,
+                  width: 380,
                   child: ListView.builder(
                       itemCount: citiesList.length,
                       shrinkWrap: true,
