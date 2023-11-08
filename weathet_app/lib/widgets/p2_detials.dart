@@ -7,8 +7,8 @@ class P2Detials extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 100),
+    return const Padding(
+      padding: EdgeInsets.only(top: 100),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [

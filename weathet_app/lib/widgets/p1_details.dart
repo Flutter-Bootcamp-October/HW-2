@@ -7,9 +7,9 @@ class P1Detials extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Padding(
-        padding: const EdgeInsets.only(top: 100),
+        padding: EdgeInsets.only(top: 100),
         child: Column(
           children: [
             Text(

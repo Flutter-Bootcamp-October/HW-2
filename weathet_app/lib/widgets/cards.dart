@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:weathet_app/models/weather.dart';
 import 'package:weathet_app/screens/detials_screen.dart';
 
 class CardsWeather extends StatelessWidget {
   const CardsWeather({
     super.key,
+    required this.city,
   });
+
+  final Weather city;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +28,8 @@ class CardsWeather extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+          child: const Padding(
+            padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -49,7 +53,7 @@ class CardsWeather extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      width: 150,
+                      width: 140,
                     ),
                     Text(
                       "21",
@@ -66,7 +70,7 @@ class CardsWeather extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.w700, color: Colors.white)),
                     SizedBox(
-                      width: 170,
+                      width: 160,
                     ),
                     Text("H:30",
                         style: TextStyle(

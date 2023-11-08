@@ -7,8 +7,8 @@ class TitleHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30, right: 250, bottom: 10),
+    return const Padding(
+      padding: EdgeInsets.only(top: 30, right: 250, bottom: 10),
       child: Text(
         "Weather",
         style: TextStyle(
