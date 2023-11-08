@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:glassmorphism/glassmorphism.dart';
 import 'package:lottie/lottie.dart';
 import 'package:weathet_app/models/weather.dart';
-import 'package:weathet_app/widgets/p2_detials.dart';
 
 class DetalsScreen extends StatelessWidget {
   const DetalsScreen({super.key, required this.city});
