@@ -23,7 +23,7 @@ class _WeatherNavigationBarState extends State<WeatherNavigationBar> {
         extendBody: true,
         body: screen[index],
         bottomNavigationBar: DotNavigationBar(
-          backgroundColor: Color.fromARGB(255, 42, 42, 41),
+          backgroundColor: Colors.grey.withOpacity(0.4),
           currentIndex: _SelectedTab.values.indexOf(_selectedTab),
           unselectedItemColor: Colors.grey,
           onTap: (int i) {
