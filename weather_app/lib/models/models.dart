@@ -70,16 +70,19 @@ class Current {
   Current({
     required this.tempC,
     required this.feelslikeC,
+    required this.isday,
     required this.condition,
   });
 
   late final double tempC;
   late final double feelslikeC;
+  late final int isday;
   late final Condition condition;
 
   Current.fromJson(Map<String, dynamic> json) {
     tempC = json['temp_c'] ?? 0.0;
     feelslikeC = json['feelslike_c'] ?? 0.0;
+    isday = json['is_day'] ?? 0;
     condition = Condition.fromJson(json['condition'] ?? {});
   }
 
@@ -87,6 +90,7 @@ class Current {
     final _data = <String, dynamic>{};
     _data['temp_c'] = tempC;
     _data['feelslike_c'] = feelslikeC;
+    _data['is_day'] = isday;
     _data['condition'] = condition.toJson();
     return _data;
   }

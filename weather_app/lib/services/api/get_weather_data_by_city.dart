@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:weather_app/models/models.dart';
 
@@ -14,18 +14,34 @@ Future<Weather> getWeatherData(String city) async {
   if (decodedResponse == null) {
     throw Exception('Failed to decode response');
   }
+
   return weatherObject;
 }
 
 List getWeatherImage(int conditnCode) {
   switch (conditnCode) {
     case 1000:
-      return ['lib/assets/images/snowing night.jpg'];
+      return [
+        'lib/assets/images/snowing night.jpg',
+        'lib/assets/images/overcast.png',
+        'lib/assets/images/Clear1.jpg',
+        'lib/assets/images/clear-sky.png'
+      ];
     case 1003:
     case 1006:
-      return ['lib/assets/images/snowing night.jpg'];
+      return [
+        'lib/assets/images/snowing night.jpg',
+        'lib/assets/images/cloudy (2).png',
+        'lib/assets/images/Clear1.jpg',
+        'lib/assets/images/cloudy.png'
+      ];
     case 1009:
-      return ['lib/assets/images/snowing night.jpg'];
+      return [
+        'lib/assets/images/snowing night.jpg',
+        'lib/assets/images/snow.png',
+        'lib/assets/images/Clear1.jpg',
+        'lib/assets/images/snow.png'
+      ];
     case 1063:
     case 1180:
     case 1183:
@@ -47,7 +63,12 @@ List getWeatherImage(int conditnCode) {
     case 1240:
     case 1243:
     case 1246:
-      return ['lib/assets/images/snowing night.jpg'];
+      return [
+        'lib/assets/images/snowing night.jpg',
+        'lib/assets/images/cloudy_rine.png',
+        'lib/assets/images/Clear1.jpg',
+        'lib/assets/images/cloudy_rine.png'
+      ];
     case 1066:
     case 1217:
     case 1228:
@@ -59,11 +80,26 @@ List getWeatherImage(int conditnCode) {
     case 1276:
     case 1279:
     case 1282:
-      return ['lib/assets/images/snowing night.jpg'];
+      return [
+        'lib/assets/images/snowing night.jpg',
+        'lib/assets/images/cloudy_rine.png',
+        'lib/assets/images/Clear1.jpg',
+        'lib/assets/images/cloudy_rine.png'
+      ];
     case 1087:
     case 1270:
-      return ['lib/assets/images/snowing night.jpg'];
+      return [
+        'lib/assets/images/snowing night.jpg',
+        'lib/assets/images/rain.png',
+        'lib/assets/images/Clear1.jpg',
+        'lib/assets/images/rain.png'
+      ];
     default:
-      return ['llib/assets/images/pexels-pixabay-414659.jpg'];
+      return [
+        'lib/assets/images/snowing night.jpg',
+        'lib/assets/images/snow.png',
+        'lib/assets/images/Clear1.jpg',
+        'lib/assets/images/snow.png'
+      ];
   }
 }
