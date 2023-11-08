@@ -21,4 +21,12 @@ flutter:
   assets:
     - assets\images\cloudImage.png
     - assets\images\Rectangle.png
-    
+    - assets\images\snow.png
+    - assets\images\clear.png
+    - assets\images\cloudy.png
+    - assets\images\fog.png
+    - assets\images\rainy.png
+    - assets\images\storm.png
+    - assets\images\sunny.png
+    - assets\images\cloudyNight.png
+

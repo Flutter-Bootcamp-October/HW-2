@@ -6,7 +6,6 @@ class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
   TextEditingController cityController = TextEditingController(text: 'London');
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +70,7 @@ class HomeScreen extends StatelessWidget {
                               children: [
                                 Image.asset('assets/images/Rectangle.png'),
                                 Positioned(
-                                  top: 30,
+                                  top: 80,
                                   left: 10,
                                   child: Text(
                                     '${snapshot.data!.current!.tempC}°',
@@ -80,7 +79,14 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  top: 139,
+                                    left: 133,
+                                    bottom: 45,
+                                    width: 263,
+                                    height: 130,
+                                    child: Image.asset(weatherStatus[snapshot
+                                        .data!.current!.condition!.text])),
+                                Positioned(
+                                  top: 147,
                                   left: 10,
                                   child: Row(
                                     children: [
@@ -101,26 +107,24 @@ class HomeScreen extends StatelessWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  top: 110,
+                                  top: 120,
                                   left: 290,
                                   child: InkWell(
-                                    hoverColor: Colors.amber,
-                                    onTap: () {
-                                      objectList.add(snapshot.data!);
-                                    },
+                                    onTap: () {},
                                     child: const Icon(
                                       Icons.favorite_border,
                                       color: Colors.white,
+                                      size: 25,
                                     ),
                                   ),
                                 ),
                                 Positioned(
-                                  top: 140,
+                                  top: 150,
                                   left: 240,
                                   child: Text(
                                     '${snapshot.data!.current!.condition!.text}',
                                     style: const TextStyle(
-                                        fontSize: 15, color: Colors.white),
+                                        fontSize: 13, color: Colors.white),
                                   ),
                                 ),
                               ],
