@@ -1,3 +1,4 @@
+
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/screens/home_screen.dart';
@@ -32,29 +33,24 @@ class _NavigationScreenState extends State<NavigationScreen> {
       extendBody: true,
       body: pages[_currentIndex],
       bottomNavigationBar: DotNavigationBar(
-        marginR: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        marginR: const EdgeInsets.symmetric(horizontal: 85, vertical: 30),
         curve: Curves.fastLinearToSlowEaseIn,
-        backgroundColor: Color.fromARGB(255, 128, 253, 255),
+        backgroundColor: Colors.grey.shade100.withOpacity(0.15),
         currentIndex: _currentIndex,
         onTap: changePage,
-        dotIndicatorColor: const Color(0xff233b67),
+        dotIndicatorColor: Colors.white,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.white,
         items: [
           DotNavigationBarItem(
-              icon: const Icon(Icons.home_outlined),
-              selectedColor: const Color(0xff233b67),
-              unselectedColor: const Color(0xff233b67)),
+            icon: const Icon(Icons.home_outlined),
+          ),
           DotNavigationBarItem(
-              icon: const Icon(Icons.search),
-              selectedColor: const Color(0xff233b67),
-              unselectedColor: const Color(0xff233b67)),
+            icon: const Icon(Icons.search),
+          ),
           DotNavigationBarItem(
-              icon: const Icon(Icons.favorite_border),
-              selectedColor: const Color(0xff233b67),
-              unselectedColor: const Color(0xff233b67)),
-          DotNavigationBarItem(
-              icon: const Icon(Icons.add_circle_outline),
-              selectedColor: const Color(0xff233b67),
-              unselectedColor: const Color(0xff233b67)),
+            icon: const Icon(Icons.add_circle_outline),
+          ),
         ],
       ),
     );

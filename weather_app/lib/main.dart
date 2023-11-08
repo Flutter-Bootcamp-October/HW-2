@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/screens/navigation_dot_Screen.dart';
 
+
 void main() {
   runApp(const MainApp());
 }
@@ -11,8 +12,9 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            // useMaterial3: true,
+            useMaterial3: false,
             textTheme: const TextTheme(
               // bodyLarge: TextStyle(),
               bodyMedium: TextStyle(),
