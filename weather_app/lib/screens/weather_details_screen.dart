@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/data/globally.dart';
 import 'package:weather_app/model/weather.dart';
+import 'package:weather_app/screens/home_screen.dart';
 
 class WeatherDetailsScreen extends StatefulWidget {
   WeatherDetailsScreen({
@@ -33,7 +34,13 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
             Row(
               children: [
                 InkWell(
-                  onTap: () => favouriteList.add(widget.weather),
+                  onTap: () {
+                    favouriteList.add(widget.weather);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomeScreen()));
+                  },
                   child: const Icon(
                     Icons.favorite,
                     color: Colors.red,
