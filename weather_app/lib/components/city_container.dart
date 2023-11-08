@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CityContainer extends StatelessWidget {
+class CityContainer extends StatefulWidget {
   const CityContainer({
     super.key,
     required this.condetion,
@@ -16,12 +16,17 @@ class CityContainer extends StatelessWidget {
   final String iconURL;
 
   @override
+  State<CityContainer> createState() => _CityContainerState();
+}
+
+class _CityContainerState extends State<CityContainer> {
+  @override
   Widget build(BuildContext context) {
     return Container(
       height: 100,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          color: condetion
+          color: widget.condetion
               ? Colors.grey.shade100.withOpacity(0.1)
               : Colors.blue.withOpacity(0.5)),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
@@ -30,20 +35,20 @@ class CityContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              cityName,
+              widget.cityName,
               style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 22),
             ),
             Text(
-              weatherCondetion,
+              widget.weatherCondetion,
               style: const TextStyle(fontSize: 18, color: Colors.white70),
             ),
           ],
         ),
         Text(
-          '${temp}',
+          '${widget.temp}',
           style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
-        Image.network(fit: BoxFit.fitHeight, iconURL)
+        Image.network(fit: BoxFit.fitHeight, widget.iconURL)
       ]),
     );
   }
