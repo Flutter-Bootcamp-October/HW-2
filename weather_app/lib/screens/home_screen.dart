@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: [
+        actions: const [
           Row(
             children: [
               Icon(Icons.search),
@@ -28,9 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           )
         ],
-        title: Text("Weather App"),
+        title: const Text("Weather App"),
       ),
-      body: Column(
+      body: const Column(
         children: [Text("Favourite ")],
       ),
     );

@@ -34,7 +34,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
       bottomNavigationBar: DotNavigationBar(
         marginR: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         curve: Curves.fastLinearToSlowEaseIn,
-        backgroundColor: const Color.fromARGB(255, 128, 253, 255),
+        backgroundColor: Color.fromARGB(255, 128, 253, 255),
         currentIndex: _currentIndex,
         onTap: changePage,
         dotIndicatorColor: const Color(0xff233b67),
