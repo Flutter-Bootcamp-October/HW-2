@@ -30,30 +30,61 @@ class _SearchCityState extends State<SearchCity> {
               const SizedBox(
                 height: 70,
               ),
-              TextField(
-                autofocus: false,
-                decoration: InputDecoration(
-                  fillColor: Colors.grey.shade100.withOpacity(0.1),
-                  filled: true,
-                  hintText: 'London',
-                  suffix: IconButton(
-                    icon: const Icon(
-                      Icons.search,
-                      color: Colors.white60,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow: const [
+                        BoxShadow(
+                            blurRadius: 5,
+                            color: Colors.white10,
+                            blurStyle: BlurStyle.inner)
+                      ],
                     ),
-                    onPressed: () {
-                      cityController;
-                      setState(() {});
-                    },
+                    width: MediaQuery.of(context).size.width * 0.74,
+                    child: TextField(
+                      style: const TextStyle(color: Colors.white),
+                      autofocus: false,
+                      decoration: InputDecoration(
+                        fillColor: Colors.grey.shade50.withOpacity(0.1),
+                        filled: true,
+                        hintText: 'London',
+                        hintStyle: const TextStyle(color: Colors.white),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: BorderSide.none),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(25),
+                            borderSide: BorderSide.none),
+                      ),
+                      controller: cityController,
+                    ),
                   ),
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: BorderSide.none),
-                  focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(25),
-                      borderSide: BorderSide.none),
-                ),
-                controller: cityController,
+                  Container(
+                      height: 100,
+                      width: 60,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                                blurRadius: 5,
+                                color: Colors.white10.withOpacity(0.1),
+                                blurStyle: BlurStyle.inner)
+                          ],
+                          shape: BoxShape.circle,
+                          color: Colors.grey.shade100.withOpacity(0.1)),
+                      child: IconButton(
+                        icon: const Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          cityController = cityController;
+                          setState(() {});
+                        },
+                      ))
+                ],
               ),
               const SizedBox(
                 height: 30,

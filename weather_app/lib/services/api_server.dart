@@ -11,5 +11,3 @@ Future<Weather> getWeatherData(String city) async {
   print(response.body);
   return weatherObject;
 }
-
-
