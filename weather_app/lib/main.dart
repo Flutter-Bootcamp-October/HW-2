@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/screens/nav_bar.dart';
 
-
 void main() {
   runApp(const MainApp());
 }

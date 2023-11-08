@@ -43,6 +43,7 @@ List getWeatherImage(int conditnCode) {
         'lib/assets/images/snow.png'
       ];
     case 1063:
+      return ['', '', 'lib/assets/images/Lantern-cuate.png', ''];
     case 1180:
     case 1183:
     case 1186:
