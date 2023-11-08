@@ -13,3 +13,15 @@ Future<Weather> getWeatherData(String city) async {
   //print(weatherObject.location!.name!);
   return weatherObject;
 }
+
+Future<Weather> postWeatherData(String city) async {
+  final url = Uri.parse(
+      'http://api.weatherapi.com/v1/current.json?key=14351aad1ca742f5ad1160401230711&q=$city&aqi=no');
+  final data = {"name": city};
+  final response = await http.post(url, body: jsonEncode(data));
+  final decodResponse = jsonDecode(response.body);
+  final weatherObject = Weather.fromJson(decodResponse);
+
+  //print(weatherObject.location);
+  return weatherObject;
+}
