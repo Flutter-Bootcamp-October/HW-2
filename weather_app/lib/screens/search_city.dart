@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/screens/home_screen.dart';
 
 import 'package:weather_app/screens/weather_details_screen.dart';
 import 'package:weather_app/services/api_server.dart';
@@ -22,10 +23,7 @@ class _SearchCityState extends State<SearchCity> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff141441),
-        // backgroundColor: day == false
-        //     ? Color.fromARGB(85, 20, 20, 65)
-        //     : Color.fromARGB(255, 20, 20, 65),
+        backgroundColor: color,
         body: SafeArea(
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -35,7 +33,6 @@ class _SearchCityState extends State<SearchCity> {
               const SizedBox(
                 height: 70,
               ),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -66,7 +63,6 @@ class _SearchCityState extends State<SearchCity> {
                             borderSide: BorderSide.none),
                       ),
                       controller: cityController,
-
                     ),
                   ),
                   Container(
