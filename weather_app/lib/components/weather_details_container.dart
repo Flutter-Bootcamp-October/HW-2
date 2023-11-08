@@ -40,6 +40,7 @@ class WeatherDetailsContainer extends StatelessWidget {
                 Image.network(
                   image,
                   height: 30,
+                  color: Colors.white,
                 )
               ],
             ),

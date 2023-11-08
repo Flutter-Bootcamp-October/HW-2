@@ -39,16 +39,17 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 30,
             ),
             //make list clickable to view details
+            //show No city added when list is empty
             ListView.separated(
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                if (favouriteList.isNotEmpty) {
-                  return FavouriteCity(weather: favouriteList[index]);
+                if (favouriteList.isEmpty) {
+                  return Center(child: Text("No City added"));
                 } else {
-                  const Text("No City added");
+                  return FavouriteCity(weather: favouriteList[index]);
                 }
               },
-              itemCount: favouriteList.length,
+              itemCount: favouriteList.length+1,
               separatorBuilder: (BuildContext context, int index) =>
                   const SizedBox(
                 height: 20,

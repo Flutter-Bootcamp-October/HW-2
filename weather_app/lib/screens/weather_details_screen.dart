@@ -121,7 +121,8 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                   children: [
                     Text(
                       "${widget.weather.current!.tempC}",
-                      style: const TextStyle(fontSize: 30),
+                      style: const TextStyle(
+                          fontSize: 30, fontWeight: FontWeight.w600),
                     ),
                     const SizedBox(
                       height: 10,
@@ -132,7 +133,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                 ),
               ),
               const SizedBox(
-                height: 65,
+                height: 80,
               ),
 
               // add containers with wind data
@@ -159,7 +160,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                 ],
               ),
               SizedBox(
-                height: 25,
+                height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
