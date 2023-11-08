@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/models/weather_model.dart';
-import 'package:weather_app/services/api_services.dart';
+import 'package:weather_app/screens/home_screen.dart';
 
-void main() async {
-  getWeather("sidney");
-
+void main() {
   runApp(const MainApp());
 }
 
@@ -14,12 +11,6 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+        debugShowCheckedModeBanner: false, home: HomeScreen());
   }
 }

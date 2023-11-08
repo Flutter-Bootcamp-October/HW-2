@@ -21,3 +21,68 @@ ListView{ uses weatherList}:
  2. no tap ->currentCity = weatherList[index];
  3. push to details screen
 */
+
+import 'package:flutter/material.dart';
+import 'package:weather_app/consts/decoration.dart';
+import 'package:weather_app/data/data.dart';
+import 'package:weather_app/global/global.dart';
+import 'package:weather_app/models/weather_model.dart';
+import 'package:weather_app/services/api_services.dart';
+
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    buildList();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    TextEditingController searchController = TextEditingController();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Weather App"),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: TextField(
+              controller: searchController,
+              decoration: searchBarDec,
+              onSubmitted: (value) async {
+                List response =
+                    await getWeatherOf(searchController.text ?? "Riyadh");
+                if (response[0] == "OK") {
+                  print("hi Raffal");
+                  currentCity = response[1];
+                  //push to details screen
+                } else {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(response[0])));
+                }
+              },
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  void buildList() async {
+    //weatherList.clear();
+    for (String city in defaultList) {
+      List response = await getWeatherOf(city);
+      if (response[0] == "OK") {
+        weatherList.add(response[1]);
+      }
+    }
+  }
+}
