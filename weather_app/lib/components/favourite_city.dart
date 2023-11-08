@@ -16,7 +16,11 @@ class _FavouriteCityState extends State<FavouriteCity> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => WeatherDetailsScreen(weather: widget.weather),
+      onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => WeatherDetailsScreen(weather: widget.weather),
+          )),
       child: CityContainer(
         condetion: widget.weather.current!.isDay == 0,
         cityName: "${widget.weather.location!.name}",

@@ -25,6 +25,12 @@ class _CityContainerState extends State<CityContainer> {
     return Container(
       height: 100,
       decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                blurRadius: 5,
+                color: Colors.white10.withOpacity(0.1),
+                blurStyle: BlurStyle.inner)
+          ],
           borderRadius: BorderRadius.circular(20),
           color: widget.condetion
               ? Colors.grey.shade100.withOpacity(0.1)
