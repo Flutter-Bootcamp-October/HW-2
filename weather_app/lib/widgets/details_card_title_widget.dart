@@ -10,7 +10,12 @@ class DetailCardTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Image.asset(cardImage),
+        Image.asset(
+          cardImage,
+          color: Color(0xff63647e),
+          width: 20,
+          height: 20,
+        ),
         Padding(
           padding: const EdgeInsets.only(left: 4, top: 4),
           child: Text(

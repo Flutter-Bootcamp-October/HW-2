@@ -68,7 +68,6 @@ class DetilesScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    //Image.asset("weather_app/assets/moon.png"),
                     Text(
                       currentCity.location!.name!,
                       style: const TextStyle(
@@ -77,8 +76,8 @@ class DetilesScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "${currentCity.current!.tempC!} °",
-                      style: TextStyle(
+                      "${currentCity.current!.tempC!.toInt()}°",
+                      style: const TextStyle(
                           color: Colors.white,
                           fontSize: 64,
                           fontWeight: FontWeight.w100),
@@ -98,19 +97,19 @@ class DetilesScreen extends StatelessWidget {
           Positioned(
             top: 360,
             child: Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
+              padding: const EdgeInsets.only(left: 8, right: 8),
               child: Row(
                 children: [
                   DetailCard(
                       cardtitle: "UV INDEX",
-                      cardImage: "weather_app/assets/detile_humidity.png",
+                      cardImage: "weather_app/assets/uv_detail.png",
                       cardValue: currentCity.current!.uv!.toString()),
-                  SizedBox(
+                  const SizedBox(
                     width: 12,
                   ),
                   DetailCard(
                     cardtitle: "WIND",
-                    cardImage: "weather_app/assets/detile_humidity.png",
+                    cardImage: "weather_app/assets/detail_wind.png",
                     cardValue: currentCity.current!.windKph!.toString(),
                   )
                 ],
@@ -120,20 +119,20 @@ class DetilesScreen extends StatelessWidget {
           Positioned(
             top: 560,
             child: Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
+              padding: const EdgeInsets.only(left: 8, right: 8),
               child: Row(
                 children: [
                   DetailCard(
                     cardtitle: "HUMIDITY",
-                    cardImage: "weather_app/assets/detile_humidity.png",
+                    cardImage: "weather_app/assets/detail_humidity.png",
                     cardValue: currentCity.current!.humidity!.toString(),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 12,
                   ),
                   DetailCard(
                       cardtitle: "Pressure",
-                      cardImage: "weather_app/assets/detile_humidity.png",
+                      cardImage: "weather_app/assets/detail_pressure.png",
                       cardValue: currentCity.current!.pressureIn!.toString())
                 ],
               ),

@@ -45,7 +45,7 @@ class DetailCard extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16, top: 8),
             child: DetailCardTitle(
               cardTitle: cardtitle,
-              cardImage: cardImage,
+              cardImage: cardImage, 
             ),
           ),
           Column(
@@ -62,6 +62,3 @@ class DetailCard extends StatelessWidget {
     );
   }
 }
-
-
-        //Text(currentCity.current!.windKph!.toString()),
