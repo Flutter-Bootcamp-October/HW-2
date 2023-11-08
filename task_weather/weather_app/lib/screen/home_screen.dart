@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/data/condition.dart';
 import 'package:weather_app/data/global_data.dart';
+import 'package:weather_app/screen/favorite_screen.dart';
 import 'package:weather_app/service/api_service.dart';
 import 'package:weather_app/widgets/background.dart';
 import 'package:weather_app/widgets/info_container.dart';
@@ -27,11 +28,29 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 70, left: 20),
-                    child: Text(
-                      'Weather',
-                      style: TextStyle(color: Colors.white, fontSize: 30),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 70, left: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          'Weather',
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        ),
+                        IconButton(
+                          icon: const Icon(
+                            Icons.favorite_rounded,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const FavoriteScreen()));
+                          },
+                        )
+                      ],
                     ),
                   ),
                   const SizedBox(
@@ -126,11 +145,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                   },
                                   child: !favoriteCities.contains(
                                           snapshot.data!['location']['name'])
-                                      ? Icon(
+                                      ? const Icon(
                                           Icons.favorite_border,
                                           color: Colors.white,
                                         )
-                                      : Icon(Icons.favorite,
+                                      : const Icon(Icons.favorite,
                                           color: Colors.redAccent),
                                 ),
                               ),
