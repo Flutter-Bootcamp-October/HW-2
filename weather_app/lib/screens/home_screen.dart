@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/components/favourite_city.dart';
 import 'package:weather_app/data/globally.dart';
-import 'package:weather_app/model/weather.dart';
-import 'package:weather_app/screens/search_city.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,14 +20,16 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text("Weather App"),
+        title: const Text("Weather App"),
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             SizedBox(
               height: 35,
+
             ),
             Text(
               "Favourite Cities",

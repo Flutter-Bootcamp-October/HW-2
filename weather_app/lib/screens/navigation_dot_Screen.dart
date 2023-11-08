@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:weather_app/screens/home_screen.dart';
@@ -47,9 +45,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
           DotNavigationBarItem(
             icon: const Icon(Icons.search),
           ),
-          // DotNavigationBarItem(
-          //   icon: const Icon(Icons.add_circle_outline),
-          // ),
+
         ],
       ),
     );
