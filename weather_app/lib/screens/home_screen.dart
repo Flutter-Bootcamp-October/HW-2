@@ -13,7 +13,6 @@ onSubmitted async{
     - Weather.fromJson(decodedResponse);
   5. set golbal current city to Weather object
     - currentCity = Weather.fromJson(decodedResponse);
-    - add to weatherList
   6. push to details screen
 }
 
