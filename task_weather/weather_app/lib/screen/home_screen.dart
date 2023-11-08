@@ -1,31 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/data/global_data.dart';
 import 'package:weather_app/service/api_service.dart';
+import 'package:weather_app/widgets/background.dart';
+import 'package:weather_app/widgets/info_container.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
 
-  TextEditingController cityController = TextEditingController(text: 'London');
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  TextEditingController cityController = TextEditingController(text: 'Riyadh');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
       children: [
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                Color(0xff2E3358),
-                Color(0xff3b3781),
-                // Color(0xff6449aa),
-                // Color(0xff7f50ae),
-                // Color(0xff9047ac),
-              ])),
+        Background(
           child: Padding(
               padding: const EdgeInsets.all(30),
               child: SingleChildScrollView(
@@ -43,6 +37,7 @@ class HomeScreen extends StatelessWidget {
                       height: 20,
                     ),
                     TextField(
+                      style: const TextStyle(color: Colors.white),
                       controller: cityController,
                       decoration: InputDecoration(
                           focusedBorder: OutlineInputBorder(
@@ -52,9 +47,14 @@ class HomeScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(18),
                               borderSide: BorderSide.none),
                           filled: true,
-                          fillColor: const Color.fromARGB(255, 63, 69, 118),
+                          fillColor: const Color.fromARGB(255, 63, 69, 118)
+                              .withOpacity(0.4),
                           prefixIcon: const Icon(
                             Icons.search,
+                            color: Colors.white,
+                          ),
+                          suffixIcon: const Icon(
+                            Icons.location_on_outlined,
                             color: Colors.white,
                           ),
                           hintText: 'Search for a city',
@@ -123,6 +123,19 @@ class HomeScreen extends StatelessWidget {
                                         fontSize: 15, color: Colors.white),
                                   ),
                                 ),
+                                const Positioned(
+                                  top: 20,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      InfoContainer(),
+                                      InfoContainer(),
+                                      InfoContainer(),
+                                      InfoContainer(),
+                                    ],
+                                  ),
+                                )
                               ],
                             ),
                           );
@@ -130,8 +143,11 @@ class HomeScreen extends StatelessWidget {
                           print(snapshot);
                           return const Text("Error");
                         }
-                        return const Center(
-                          child: CircularProgressIndicator(),
+                        return const Padding(
+                          padding: EdgeInsets.only(top: 32),
+                          child: Center(
+                            child: CircularProgressIndicator(),
+                          ),
                         );
                       },
                     ),

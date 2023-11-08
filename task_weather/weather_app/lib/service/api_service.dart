@@ -8,12 +8,9 @@ Future<Weather> getDataId(String city) async {
       'http://api.weatherapi.com/v1/current.json?key=e690ecc2e8ff4b7c83e174357230711&q=/$city');
 
   final response = await http.get(urlGetDataAll);
-
   final responseId = jsonDecode(response.body);
   print(responseId);
   final weatherObject = Weather.fromJson(responseId);
-
-  
 
   return weatherObject;
 }
