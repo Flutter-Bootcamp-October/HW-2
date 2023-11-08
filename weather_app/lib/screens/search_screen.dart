@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:weather_app/models/glopals.dart';
 import 'package:weather_app/models/models.dart';
 import 'package:weather_app/services/api/get_weather_data_by_city.dart';
 
@@ -79,6 +80,8 @@ class _SearchScreenState extends State<SearchScreen> {
                           .toString()
                           .toLowerCase()
                           .contains(searchText.toLowerCase())) {
+                        // city.add(weatherData);
+                        print(city);
                         return Padding(
                           padding: const EdgeInsets.all(16),
                           child: Stack(
@@ -142,7 +145,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   right: 30,
                   top: 5,
                   child: Image.asset(
-                    'lib/assets/images/heavy-rain.png',
+                    'lib/assets/images/snow.png',
                     width: 80,
                     height: 80,
                   ),

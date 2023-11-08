@@ -20,7 +20,7 @@ Future<Weather> getWeatherData(String city) async {
 List getWeatherImage(int conditnCode) {
   switch (conditnCode) {
     case 1000:
-      return ['lib/assets/images/pexels-pixabay-414659.jpg'];
+      return ['lib/assets/images/snowing night.jpg'];
     case 1003:
     case 1006:
       return ['lib/assets/images/snowing night.jpg'];
