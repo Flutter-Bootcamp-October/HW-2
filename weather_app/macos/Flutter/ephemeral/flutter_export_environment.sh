@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\dev\flutter"
-export "FLUTTER_APPLICATION_PATH=D:\Labs\HW-2\weather_app"
+export "FLUTTER_ROOT=C:\tools\flutter_windows_3.13.7-stable\flutter"
+export "FLUTTER_APPLICATION_PATH=C:\Users\ruba5\Documents\GitHub\HW-2\weather_app"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=0.1.0"
