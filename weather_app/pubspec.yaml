@@ -23,6 +23,9 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - weather_app/assets/images/detail_humidity.png
+    - weather_app/assets/images/detail_wind.png
+    - weather_app/assets/images/uv_detail.png
 
 
 
