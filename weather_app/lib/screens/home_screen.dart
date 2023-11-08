@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return FavouriteCity(weather: favouriteList[index]);
                 }
               },
-              itemCount: favouriteList.length+1,
+              itemCount: favouriteList.length,
               separatorBuilder: (BuildContext context, int index) =>
                   const SizedBox(
                 height: 20,

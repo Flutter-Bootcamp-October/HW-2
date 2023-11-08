@@ -51,6 +51,7 @@ class _SearchCityState extends State<SearchCity> {
                       style: const TextStyle(color: Colors.white),
                       autofocus: false,
                       decoration: InputDecoration(
+                        
                         fillColor: Colors.grey.shade50.withOpacity(0.1),
                         filled: true,
                         hintText: 'London',

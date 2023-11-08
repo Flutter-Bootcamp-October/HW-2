@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/data/globally.dart';
 import 'package:weather_app/model/weather.dart';
 import 'package:weather_app/screens/home_screen.dart';
-
+import 'package:lottie/lottie.dart';
 import '../components/weather_details_container.dart';
 
 class WeatherDetailsScreen extends StatefulWidget {
@@ -41,8 +41,11 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                     showDialog(
                         context: context,
                         builder: (context) {
-                          return const AlertDialog(
+                          return AlertDialog(
                             title: Text("Added to favorite "),
+                            content: Lottie.asset(
+                              "weather_app/assets/favorite.json",
+                            ),
                           );
                         });
                   },
