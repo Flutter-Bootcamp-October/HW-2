@@ -26,6 +26,10 @@ Screenshots:
 ------------------------------------------------------------------------------------------------------------------------------
 * have fun exploring the app :b
 
+## Note:
+* To enter the list screen -> search & filter screen, tap on the name of the city in first screen.
+
+
 ## Getting Started
 
 ### Dependencies
