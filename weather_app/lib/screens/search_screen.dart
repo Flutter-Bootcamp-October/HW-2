@@ -67,8 +67,7 @@ class _SearchScreenState extends State<SearchScreen> {
             Stack(
               children: [
                 FutureBuilder<Weather>(
-                  future: getWeatherData(searchController
-                      .text), 
+                  future: getWeatherData(searchController.text),
                   builder: (context, snapshot) {
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const CircularProgressIndicator();
@@ -86,10 +85,8 @@ class _SearchScreenState extends State<SearchScreen> {
                             children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(20),
-                                child: Image.asset(
-                                  getWeatherImage(
-                                      weatherData.current.condition.code),
-                                ),
+                                child: Image.asset(getWeatherImage(
+                                    weatherData.current.condition.code)[0]),
                               ),
                               Container(
                                 padding: const EdgeInsets.all(16),
@@ -113,11 +110,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   color: Colors.white),
                                             ),
                                             const SizedBox(height: 4),
-                                            // Text(
-                                            //   'Low: ${weatherData.current.condition.text}°C',
-                                            //   style:
-                                            //       const TextStyle(fontSize: 16),
-                                            // ),
                                             const SizedBox(height: 20),
                                             Row(
                                               mainAxisAlignment:
@@ -129,14 +121,6 @@ class _SearchScreenState extends State<SearchScreen> {
                                                       fontSize: 16,
                                                       color: Colors.white),
                                                 ),
-                                                // const SizedBox(width: 200),
-                                                // Text(
-                                                //   weatherData
-                                                //       .current.condition.text,
-                                                //   style: const TextStyle(
-                                                //       fontSize: 16,
-                                                //       color: Colors.white),
-                                                // ),
                                               ],
                                             ),
                                           ],
@@ -158,7 +142,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   right: 30,
                   top: 5,
                   child: Image.asset(
-                    'lib/assets/snow.png',
+                    'lib/assets/images/heavy-rain.png',
                     width: 80,
                     height: 80,
                   ),

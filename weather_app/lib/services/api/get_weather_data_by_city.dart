@@ -17,15 +17,15 @@ Future<Weather> getWeatherData(String city) async {
   return weatherObject;
 }
 
-getWeatherImage(int conditnCode) {
+List getWeatherImage(int conditnCode) {
   switch (conditnCode) {
     case 1000:
-      return 'lib/assets/images/snowing night.jpg';
+      return ['lib/assets/images/pexels-pixabay-414659.jpg'];
     case 1003:
     case 1006:
-      return 'lib/assets/images/snowing night.jpg';
+      return ['lib/assets/images/snowing night.jpg'];
     case 1009:
-      return 'lib/assets/images/snowing night.jpg';
+      return ['lib/assets/images/snowing night.jpg'];
     case 1063:
     case 1180:
     case 1183:
@@ -47,7 +47,7 @@ getWeatherImage(int conditnCode) {
     case 1240:
     case 1243:
     case 1246:
-      return 'lib/assets/images/snowing night.jpg';
+      return ['lib/assets/images/snowing night.jpg'];
     case 1066:
     case 1217:
     case 1228:
@@ -59,12 +59,11 @@ getWeatherImage(int conditnCode) {
     case 1276:
     case 1279:
     case 1282:
-      return 'lib/assets/images/snowing night.jpg';
+      return ['lib/assets/images/snowing night.jpg'];
     case 1087:
     case 1270:
-    case 1279:
-      return 'lib/assets/images/snowing night.jpg';
+      return ['lib/assets/images/snowing night.jpg'];
     default:
-      return 'lib/assets/images/snowing night.jpg';
+      return ['llib/assets/images/pexels-pixabay-414659.jpg'];
   }
 }
