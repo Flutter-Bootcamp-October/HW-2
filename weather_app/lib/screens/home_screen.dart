@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/components/favourite_city.dart';
 import 'package:weather_app/data/globally.dart';
-import 'package:weather_app/model/weather.dart';
-import 'package:weather_app/screens/search_city.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -22,18 +20,18 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text("Weather App"),
+        title: const Text("Weather App"),
       ),
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 35,
           ),
-          Text(
+          const Text(
             "Favourite Cities",
             style: TextStyle(fontSize: 22),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           //make list clickable to view details
@@ -43,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return FavouriteCity(weather: favouriteList[index]);
             },
             itemCount: favouriteList.length,
-            separatorBuilder: (BuildContext context, int index) => SizedBox(
+            separatorBuilder: (BuildContext context, int index) => const SizedBox(
               height: 20,
             ),
           ),

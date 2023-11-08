@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'package:weather_app/screens/home_screen.dart';
 import 'package:weather_app/screens/navigation_dot_Screen.dart';
-import 'package:weather_app/screens/weather_details_screen.dart';
-import 'package:weather_app/services/api_server.dart';
 
-import 'package:weather_app/screens/search_city.dart';
 
 void main() {
   runApp(const MainApp());

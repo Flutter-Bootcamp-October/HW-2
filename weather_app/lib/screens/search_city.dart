@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/model/weather.dart';
+
 import 'package:weather_app/screens/weather_details_screen.dart';
 import 'package:weather_app/services/api_server.dart';
 
