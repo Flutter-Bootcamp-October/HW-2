@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/data/data.dart';
 import 'package:weather_app/global/global.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/screens/home_screen.dart';
@@ -18,6 +19,7 @@ class HomeWidget extends StatelessWidget {
         },
         onLongPress: () {
           weatherList.remove(city);
+          cityList.remove(city.location!.name!);
           // ignore: invalid_use_of_protected_member
           context.findAncestorStateOfType<HomeScreenState>()!.setState(() {});
         },

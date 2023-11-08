@@ -16,11 +16,6 @@ class HomeScreen extends StatefulWidget {
 
 class HomeScreenState extends State<HomeScreen> {
   bool isLoading = false;
-  @override
-  void initState() {
-    buildList();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,21 +56,34 @@ class HomeScreenState extends State<HomeScreen> {
       ),
       body: isLoading
           ? const Center(child: CircularProgressIndicator())
-          : Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: weatherList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return HomeWidget(city: weatherList[index]);
-                  }),
-            ),
+          : FutureBuilder(
+              future: buildList(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: weatherList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return HomeWidget(city: weatherList[index]);
+                        }),
+                  );
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
+              }),
     );
   }
 
-  void buildList() {
-    for (var city in defaultList) {
-      weatherList.add(Weather.fromJson(city));
+  Future buildList() async {
+    weatherList.clear();
+    for (var city in cityList) {
+      List response = await getWeatherOf(city);
+      if (response[0] == "OK") {
+        weatherList.add(response[1] as Weather);
+      }
     }
+    return "filled";
   }
 }
