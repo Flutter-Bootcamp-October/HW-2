@@ -23,7 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
             value: onColor,
             onChanged: (value) {
               if (onColor == true) {
-                color = Colors.blueAccent;
+                color = Color.fromARGB(255, 140, 176, 226);
               } else {
                 color = const Color(0xff141441);
               }
