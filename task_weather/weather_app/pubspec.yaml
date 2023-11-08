@@ -21,4 +21,8 @@ flutter:
   assets:
     - assets\images\cloudImage.png
     - assets\images\Rectangle.png
+    - assets\images\light_rain.gif
+    - assets\images\rein.gif
+    - assets\images\snow.gif
+    - assets\images\sunny_cloud.gif
     
