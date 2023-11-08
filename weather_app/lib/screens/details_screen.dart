@@ -102,14 +102,14 @@ class DetilesScreen extends StatelessWidget {
                 children: [
                   DetailCard(
                       cardtitle: "UV INDEX",
-                      cardImage: "weather_app/assets/uv_detail.png",
+                      cardImage: "weather_app/assets/images/uv_detail.png",
                       cardValue: currentCity.current!.uv!.toString()),
                   const SizedBox(
                     width: 12,
                   ),
                   DetailCard(
-                    cardtitle: "WIND",
-                    cardImage: "weather_app/assets/detail_wind.png",
+                    cardtitle: "WIND Speed",
+                    cardImage: "weather_app/assets/images/detail_wind.png",
                     cardValue: currentCity.current!.windKph!.toString(),
                   )
                 ],
@@ -124,15 +124,15 @@ class DetilesScreen extends StatelessWidget {
                 children: [
                   DetailCard(
                     cardtitle: "HUMIDITY",
-                    cardImage: "weather_app/assets/detail_humidity.png",
+                    cardImage: "weather_app/assets/images/detail_humidity.png",
                     cardValue: currentCity.current!.humidity!.toString(),
                   ),
                   const SizedBox(
                     width: 12,
                   ),
                   DetailCard(
-                      cardtitle: "Pressure",
-                      cardImage: "weather_app/assets/detail_pressure.png",
+                      cardtitle: "Wind Direction",
+                      cardImage: "weather_app/assets/images/detail_wind.png",
                       cardValue: currentCity.current!.pressureIn!.toString())
                 ],
               ),
