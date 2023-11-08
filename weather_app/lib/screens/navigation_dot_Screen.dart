@@ -24,8 +24,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
   final pages = [
     const HomeScreen(),
     const SearchCity(),
-    Container(),
-    Container()
   ];
   @override
   Widget build(BuildContext context) {
@@ -34,14 +32,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
       extendBody: true,
       body: pages[_currentIndex],
       bottomNavigationBar: DotNavigationBar(
-        marginR: const EdgeInsets.symmetric(horizontal: 85, vertical: 30),
+        marginR: const EdgeInsets.symmetric(horizontal: 130, vertical: 30),
         curve: Curves.fastLinearToSlowEaseIn,
-        backgroundColor: Colors.grey.shade100.withOpacity(0.15),
+        backgroundColor: Colors.grey.shade100.withOpacity(0.2),
         currentIndex: _currentIndex,
         onTap: changePage,
         dotIndicatorColor: Colors.white,
         selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
         items: [
           DotNavigationBarItem(
             icon: const Icon(Icons.home_outlined),
@@ -49,9 +47,9 @@ class _NavigationScreenState extends State<NavigationScreen> {
           DotNavigationBarItem(
             icon: const Icon(Icons.search),
           ),
-          DotNavigationBarItem(
-            icon: const Icon(Icons.add_circle_outline),
-          ),
+          // DotNavigationBarItem(
+          //   icon: const Icon(Icons.add_circle_outline),
+          // ),
         ],
       ),
     );

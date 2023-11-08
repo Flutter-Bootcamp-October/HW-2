@@ -24,30 +24,38 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         title: Text("Weather App"),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 35,
-          ),
-          Text(
-            "Favourite Cities",
-            style: TextStyle(fontSize: 22),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          //make list clickable to view details
-          ListView.separated(
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
-              return FavouriteCity(weather: favouriteList[index]);
-            },
-            itemCount: favouriteList.length,
-            separatorBuilder: (BuildContext context, int index) => SizedBox(
-              height: 20,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 35,
             ),
-          ),
-        ],
+            Text(
+              "Favourite Cities",
+              style: TextStyle(fontSize: 22),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+            //make list clickable to view details
+            ListView.separated(
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                if (favouriteList.isNotEmpty) {
+                  return FavouriteCity(weather: favouriteList[index]);
+                } else {
+                  const Text("No City added");
+                }
+              },
+              itemCount: favouriteList.length,
+              separatorBuilder: (BuildContext context, int index) =>
+                  const SizedBox(
+                height: 20,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

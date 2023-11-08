@@ -14,13 +14,18 @@ class SearchCity extends StatefulWidget {
   State<SearchCity> createState() => _SearchCityState();
 }
 
+bool day = true;
+
 ////add to search list and display down the search bar in this screen
 class _SearchCityState extends State<SearchCity> {
   TextEditingController cityController = TextEditingController(text: 'London');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xff141441),
+        backgroundColor: Color(0xff141441),
+        // backgroundColor: day == false
+        //     ? Color.fromARGB(85, 20, 20, 65)
+        //     : Color.fromARGB(255, 20, 20, 65),
         body: SafeArea(
             child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -33,7 +38,7 @@ class _SearchCityState extends State<SearchCity> {
               TextField(
                 autofocus: false,
                 decoration: InputDecoration(
-                  fillColor: Colors.grey.shade100.withOpacity(0.1),
+                  fillColor: Colors.grey.shade100.withOpacity(0.2),
                   filled: true,
                   hintText: 'London',
                   suffix: IconButton(
