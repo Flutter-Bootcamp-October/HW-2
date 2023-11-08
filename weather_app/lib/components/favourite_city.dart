@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/components/city_container.dart';
 import 'package:weather_app/model/weather.dart';
+import 'package:weather_app/screens/weather_details_screen.dart';
 
 class FavouriteCity extends StatefulWidget {
   const FavouriteCity({super.key, required this.weather});
@@ -14,12 +15,15 @@ class FavouriteCity extends StatefulWidget {
 class _FavouriteCityState extends State<FavouriteCity> {
   @override
   Widget build(BuildContext context) {
-    return CityContainer(
-      condetion: widget.weather.current!.isDay == 0,
-      cityName: "${widget.weather.location!.name}",
-      weatherCondetion: "${widget.weather.current!.condition?.text}",
-      temp: "${widget.weather.current!.tempC}",
-      iconURL: 'https:${widget.weather.current!.condition?.icon}',
+    return InkWell(
+      onTap: () => WeatherDetailsScreen(weather: widget.weather),
+      child: CityContainer(
+        condetion: widget.weather.current!.isDay == 0,
+        cityName: "${widget.weather.location!.name}",
+        weatherCondetion: "${widget.weather.current!.condition?.text}",
+        temp: "${widget.weather.current!.tempC}",
+        iconURL: 'https:${widget.weather.current!.condition?.icon}',
+      ),
     );
   }
 }
