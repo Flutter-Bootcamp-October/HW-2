@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/data/globally.dart';
 import 'package:weather_app/model/weather.dart';
 
 class WeatherDetailsScreen extends StatefulWidget {
-  const WeatherDetailsScreen({
+  WeatherDetailsScreen({
     super.key,
     required this.weather,
   });
@@ -29,13 +30,16 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
             ),
           ),
           actions: [
-            const Row(
+            Row(
               children: [
-                Icon(
-                  Icons.favorite,
-                  color: Colors.red,
+                InkWell(
+                  onTap: () => favouriteList.add(widget.weather),
+                  child: const Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 )
               ],
@@ -53,7 +57,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                 style: const TextStyle(fontSize: 18),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Row(
@@ -72,7 +76,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                     style: const TextStyle(fontSize: 24),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Image.network(
                   "https:${widget.weather.current!.condition!.icon}",
                 ),
@@ -80,7 +84,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
             ),
             Row(
               children: [
-                SizedBox(
+                const SizedBox(
                   width: 55,
                 ),
                 Flexible(
@@ -105,7 +109,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                     "${widget.weather.current!.tempC}",
                     style: const TextStyle(fontSize: 30),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Text("${widget.weather.current!.condition!.text}",
@@ -136,7 +140,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text(
+                            const Text(
                               "wind",
                               style: TextStyle(fontSize: 20),
                             ),
@@ -146,23 +150,23 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.white,
                         ),
                         Text(
                           "speed: ${widget.weather.current!.windMph}",
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                         Text(
                           "deg: ${widget.weather.current!.windDegree}",
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                         Text(
                           "DIR: ${widget.weather.current!.windDir}",
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                       ],
                     ),
@@ -183,7 +187,7 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Text(
+                            const Text(
                               "degree",
                               style: TextStyle(fontSize: 20),
                             ),
@@ -193,19 +197,19 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
                             )
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
-                        Divider(
+                        const Divider(
                           color: Colors.white,
                         ),
                         Text(
                           "feels like: ${widget.weather.current!.feelslikeC}",
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                         Text(
                           "humidity: ${widget.weather.current!.humidity}",
-                          style: TextStyle(fontSize: 18),
+                          style: const TextStyle(fontSize: 18),
                         ),
                       ],
                     ),
