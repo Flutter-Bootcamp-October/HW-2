@@ -13,13 +13,14 @@ class MainApp extends StatefulWidget {
 }
 
 class _MainAppState extends State<MainApp> {
+  TextEditingController cityController = TextEditingController(text: "London");
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController cityController = TextEditingController();
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          body: Center(
+          body: SingleChildScrollView(
               child: Column(
             children: [
               TextField(
@@ -32,12 +33,14 @@ class _MainAppState extends State<MainApp> {
                   future: getWeatherData(cityController.text),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      //print(snapshot.data!.location!.name!);
-                      return Column(
-                        children: [
-                          Text(snapshot.data!.location!.country!),
-                          // Text(snapshot.data!.current!.humidity!.toString())
-                        ],
+                      print(snapshot.data!.location!.name!);
+                      return Card(
+                        child: Column(
+                          children: [
+                            Text(snapshot.data!.location!.country!),
+                            Text(snapshot.data!.current!.humidity!.toString())
+                          ],
+                        ),
                       );
                     } else if (snapshot.hasError) {
                       return const Center(child: Text("Error"));
