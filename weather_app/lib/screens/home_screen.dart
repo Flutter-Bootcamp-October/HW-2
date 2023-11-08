@@ -24,10 +24,12 @@ ListView{ uses weatherList}:
 
 import 'package:flutter/material.dart';
 import 'package:weather_app/consts/decoration.dart';
+import 'package:weather_app/consts/text.dart';
 import 'package:weather_app/data/data.dart';
 import 'package:weather_app/global/global.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/services/api_services.dart';
+import 'package:weather_app/widgets/home_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -37,6 +39,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  bool isLoading = false;
   @override
   void initState() {
     buildList();
@@ -48,19 +51,28 @@ class _HomeScreenState extends State<HomeScreen> {
     TextEditingController searchController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Weather App"),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: TextField(
+        toolbarHeight: 120,
+        backgroundColor: const Color.fromARGB(0, 255, 252, 252),
+        elevation: 2,
+        title: Column(
+          children: [
+            const Align(alignment: Alignment.centerLeft, child: title),
+            const SizedBox(height: 5),
+            TextField(
               controller: searchController,
               decoration: searchBarDec,
               onSubmitted: (value) async {
+                setState(() {
+                  isLoading = true;
+                });
                 List response =
                     await getWeatherOf(searchController.text ?? "Riyadh");
+                setState(() {
+                  isLoading = false;
+                });
+
                 if (response[0] == "OK") {
+                  print("nice");
                   currentCity = response[1] as Weather;
                 } else {
                   ScaffoldMessenger.of(context)
@@ -68,19 +80,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
               },
             ),
-          )
-        ],
+          ],
+        ),
+      ),
+      backgroundColor: Colors.amber,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: weatherList.length,
+            itemBuilder: (BuildContext context, int index) {
+              return HomeWidget(city: weatherList[0]);
+            }),
       ),
     );
   }
 
-  void buildList() async {
-    //weatherList.clear();
-    for (String city in defaultList) {
-      List response = await getWeatherOf(city);
-      if (response[0] == "OK") {
-        weatherList.add(response[1]);
-      }
+  void buildList() {
+    for (var city in defaultList) {
+      weatherList.add(Weather.fromJson(city));
     }
   }
 }
