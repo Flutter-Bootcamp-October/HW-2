@@ -45,7 +45,6 @@ class _NavigationScreenState extends State<NavigationScreen> {
           DotNavigationBarItem(
             icon: const Icon(Icons.search),
           ),
-
         ],
       ),
     );

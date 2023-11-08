@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/screens/navigation_dot_Screen.dart';
 
-
 void main() {
   runApp(const MainApp());
 }
