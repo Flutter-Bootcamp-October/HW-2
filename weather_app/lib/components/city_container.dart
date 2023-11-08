@@ -33,7 +33,7 @@ class _CityContainerState extends State<CityContainer> {
           ],
           borderRadius: BorderRadius.circular(20),
           color: widget.condetion
-              ? Colors.grey.shade100.withOpacity(0.1)
+              ? Color(0xff141441).withOpacity(0.5)
               : Colors.blue.withOpacity(0.5)),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
         Column(
