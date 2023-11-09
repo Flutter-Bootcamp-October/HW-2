@@ -4,6 +4,7 @@ import 'package:flutter_weather_api/models/location_model.dart';
 class Weather {
   Location? location;
   Current? current;
+  
 
   Weather({this.location, this.current});
 

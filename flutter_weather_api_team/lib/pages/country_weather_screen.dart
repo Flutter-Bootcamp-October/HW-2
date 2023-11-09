@@ -19,9 +19,10 @@ class _CountryWeatherScreenState extends State<CountryWeatherScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: widget.weather.current!.isDay! == 1
             ? AllWeatherInfo(
-                firstGradient: Color.fromARGB(255, 106, 152, 212),
+                firstGradient: Color.fromARGB(255, 163, 187, 217),
                 secondGradient: Color.fromARGB(255, 230, 250, 255),
                 themeColor: blue,
                 weather: widget.weather,
