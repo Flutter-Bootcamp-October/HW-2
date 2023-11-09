@@ -14,6 +14,7 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    citiesList = citiesList.reversed.toList();
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
