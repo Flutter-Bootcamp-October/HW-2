@@ -3,6 +3,8 @@ import 'package:flutter_weather_api/constant/constant.dart';
 import 'package:flutter_weather_api/models/astronomy.dart';
 import 'package:flutter_weather_api/models/weather_model.dart';
 import 'package:flutter_weather_api/pages/search_screen.dart';
+import 'package:flutter_weather_api/widgets/add.buttom.dart';
+import 'package:flutter_weather_api/widgets/back_search_screen_buttom.dart';
 import 'package:flutter_weather_api/widgets/city_name.dart';
 import 'package:flutter_weather_api/widgets/country_name_and_date.dart';
 import 'package:flutter_weather_api/widgets/line_widget.dart';
@@ -48,32 +50,19 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
         ),
 
         Positioned(
-          left: 330,
-          child: IconButton(
-              onPressed: () {
-                favoritCity.add(widget.weather);
-                //print(widget.weather.location!.name);
-              },
-              icon: Icon(
-                Icons.favorite_outline_rounded,
-                size: 40,
-                color: widget.themeColor,
-              )),
+          left: 320,
+          top: 10,
+          child: AddButtom(
+            weather: widget.weather,
+          ),
         ),
+
+
         Positioned(
           top: 20,
           left: 10,
-          child: InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const SearchScreen();
-              }));
-            },
-            child: Icon(
-              Icons.arrow_back_ios_new_rounded,
-              size: 40,
-              color: widget.themeColor,
-            ),
+          child: BackToSearchScreenButtom(
+            themeColor: widget.themeColor,
           ),
         ),
 
@@ -169,3 +158,6 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
     );
   }
 }
+
+
+
