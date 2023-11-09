@@ -20,14 +20,14 @@ class DetalsScreen extends StatelessWidget {
           end: Alignment.topRight,
           colors: city.current!.isDay == 1
               ? [
-                  Color(0xff2DC8EA),
-                  Color(0xff33AADD),
-                  Color(0xff29B2DD),
+                  const Color(0xff2DC8EA),
+                  const Color(0xff33AADD),
+                  const Color(0xff29B2DD),
                 ]
               : [
-                  Color(0xff0B42AB),
-                  Color(0xff134CB5),
-                  Color(0xff08244F),
+                  const Color(0xff0B42AB),
+                  const Color(0xff134CB5),
+                  const Color(0xff08244F),
                 ],
         )),
         child: Column(
@@ -72,14 +72,15 @@ class DetalsScreen extends StatelessWidget {
                       height: 10,
                     ),
                     Text(
-                      city.current!.tempC.toString() ?? "",
-                      style: TextStyle(color: Colors.white, fontSize: 60),
+                      city.current!.tempC!.toInt().toString() ?? "",
+                      style: const TextStyle(color: Colors.white, fontSize: 60),
                     ),
                     const SizedBox(
                       height: 10,
                     ),
                     Text(city.current!.condition!.text ?? "",
-                        style: TextStyle(color: Colors.white, fontSize: 20)),
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 20)),
                     const SizedBox(
                       height: 10,
                     ),
@@ -88,7 +89,7 @@ class DetalsScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -103,10 +104,10 @@ class DetalsScreen extends StatelessWidget {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Color(0xFFffffff).withOpacity(0.5),
-                          Color(0xFFFFFFFF).withOpacity(0.3),
+                          const Color(0xFFffffff).withOpacity(0.5),
+                          const Color(0xFFFFFFFF).withOpacity(0.3),
                         ],
-                        stops: [
+                        stops: const [
                           0.1,
                           1,
                         ]),
@@ -114,8 +115,8 @@ class DetalsScreen extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFFffffff).withOpacity(0.5),
-                        Color((0xFFFFFFFF)).withOpacity(0.5),
+                        const Color(0xFFffffff).withOpacity(0.5),
+                        const Color((0xFFFFFFFF)).withOpacity(0.5),
                       ],
                     ),
                     child: Padding(
@@ -123,17 +124,17 @@ class DetalsScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(city.current!.humidity.toString(),
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20)),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 20)),
                           SizedBox(
                               height: 50,
                               width: 50,
                               child:
                                   Image.asset("assets/WeatherIcon - 1-28.png")),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text("HUMIDILTY",
+                          const Text("HUMIDILTY",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -153,10 +154,10 @@ class DetalsScreen extends StatelessWidget {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Color(0xFFffffff).withOpacity(0.5),
-                          Color(0xFFFFFFFF).withOpacity(0.3),
+                          const Color(0xFFffffff).withOpacity(0.5),
+                          const Color(0xFFFFFFFF).withOpacity(0.3),
                         ],
-                        stops: [
+                        stops: const [
                           0.1,
                           1,
                         ]),
@@ -164,8 +165,8 @@ class DetalsScreen extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFFffffff).withOpacity(0.5),
-                        Color((0xFFFFFFFF)).withOpacity(0.5),
+                        const Color(0xFFffffff).withOpacity(0.5),
+                        const Color((0xFFFFFFFF)).withOpacity(0.5),
                       ],
                     ),
                     child: Padding(
@@ -173,17 +174,17 @@ class DetalsScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(city.current!.feelslikeC.toString(),
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20)),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 20)),
                           SizedBox(
                               height: 50,
                               width: 50,
                               child:
                                   Image.asset("assets/WeatherIcon - 1-3.png")),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text("FEELS LIKE",
+                          const Text("FEELS LIKE",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -203,10 +204,10 @@ class DetalsScreen extends StatelessWidget {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Color(0xFFffffff).withOpacity(0.5),
-                          Color(0xFFFFFFFF).withOpacity(0.3),
+                          const Color(0xFFffffff).withOpacity(0.5),
+                          const Color(0xFFFFFFFF).withOpacity(0.3),
                         ],
-                        stops: [
+                        stops: const [
                           0.1,
                           1,
                         ]),
@@ -214,8 +215,8 @@ class DetalsScreen extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFFffffff).withOpacity(0.5),
-                        Color((0xFFFFFFFF)).withOpacity(0.5),
+                        const Color(0xFFffffff).withOpacity(0.5),
+                        const Color((0xFFFFFFFF)).withOpacity(0.5),
                       ],
                     ),
                     child: Padding(
@@ -223,17 +224,17 @@ class DetalsScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(city.current!.windKph.toString(),
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 20)),
+                              style: const TextStyle(
+                                  color: Colors.white, fontSize: 20)),
                           SizedBox(
                             height: 50,
                             width: 50,
                             child: Image.asset("assets/WeatherIcon - 1-6.png"),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text("WIND",
+                          const Text("WIND",
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 15,
@@ -245,7 +246,7 @@ class DetalsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Row(
@@ -262,10 +263,10 @@ class DetalsScreen extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFFffffff).withOpacity(0.5),
-                        Color(0xFFFFFFFF).withOpacity(0.3),
+                        const Color(0xFFffffff).withOpacity(0.5),
+                        const Color(0xFFFFFFFF).withOpacity(0.3),
                       ],
-                      stops: [
+                      stops: const [
                         0.1,
                         1,
                       ]),
@@ -273,8 +274,8 @@ class DetalsScreen extends StatelessWidget {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Color(0xFFffffff).withOpacity(0.5),
-                      Color((0xFFFFFFFF)).withOpacity(0.5),
+                      const Color(0xFFffffff).withOpacity(0.5),
+                      const Color((0xFFFFFFFF)).withOpacity(0.5),
                     ],
                   ),
                   child: Padding(
@@ -282,16 +283,16 @@ class DetalsScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(city.current!.precipIn.toString(),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20)),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 20)),
                         SizedBox(
                             height: 50,
                             width: 50,
                             child: Image.asset("assets/insurance 1.png")),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text("PRECIP-IN",
+                        const Text("PRECIP-IN",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 15,
@@ -311,10 +312,10 @@ class DetalsScreen extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFFffffff).withOpacity(0.5),
-                        Color(0xFFFFFFFF).withOpacity(0.3),
+                        const Color(0xFFffffff).withOpacity(0.5),
+                        const Color(0xFFFFFFFF).withOpacity(0.3),
                       ],
-                      stops: [
+                      stops: const [
                         0.1,
                         1,
                       ]),
@@ -322,8 +323,8 @@ class DetalsScreen extends StatelessWidget {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Color(0xFFffffff).withOpacity(0.5),
-                      Color((0xFFFFFFFF)).withOpacity(0.5),
+                      const Color(0xFFffffff).withOpacity(0.5),
+                      const Color((0xFFFFFFFF)).withOpacity(0.5),
                     ],
                   ),
                   child: Padding(
@@ -331,17 +332,17 @@ class DetalsScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(city.current!.cloud.toString(),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20)),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 20)),
                         SizedBox(
                             height: 50,
                             width: 50,
                             child:
                                 Image.asset("assets/WeatherIcon - 1-41.png")),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text("CLOUD",
+                        const Text("CLOUD",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 15,
@@ -361,10 +362,10 @@ class DetalsScreen extends StatelessWidget {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFFffffff).withOpacity(0.5),
-                        Color(0xFFFFFFFF).withOpacity(0.3),
+                        const Color(0xFFffffff).withOpacity(0.5),
+                        const Color(0xFFFFFFFF).withOpacity(0.3),
                       ],
-                      stops: [
+                      stops: const [
                         0.1,
                         1,
                       ]),
@@ -372,8 +373,8 @@ class DetalsScreen extends StatelessWidget {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      Color(0xFFffffff).withOpacity(0.5),
-                      Color((0xFFFFFFFF)).withOpacity(0.5),
+                      const Color(0xFFffffff).withOpacity(0.5),
+                      const Color((0xFFFFFFFF)).withOpacity(0.5),
                     ],
                   ),
                   child: Padding(
@@ -381,17 +382,17 @@ class DetalsScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(city.current!.pressureIn.toString(),
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 20)),
+                            style: const TextStyle(
+                                color: Colors.white, fontSize: 20)),
                         SizedBox(
                           height: 50,
                           width: 50,
                           child: Image.asset("assets/Pressure Gauge.png"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text("PRESSURE",
+                        const Text("PRESSURE",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 15,
