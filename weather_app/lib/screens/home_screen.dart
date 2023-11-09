@@ -44,6 +44,10 @@ class HomeScreenState extends State<HomeScreen> {
 
                   if (response[0] == "OK") {
                     currentCity = response[1] as Weather;
+                    Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const DetailsScreen()),
+  );
                   } else {
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text(response[0])));
