@@ -3,6 +3,7 @@ import 'package:weather_app/data/data.dart';
 import 'package:weather_app/global/global.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/screens/home_screen.dart';
+import 'package:weather_app/screens/details_screen.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key, required this.city});
@@ -17,9 +18,9 @@ class HomeWidget extends StatelessWidget {
           currentCity = city;
           //push to details screen
           Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const DetailsScreen()),
-  );
+            context,
+            MaterialPageRoute(builder: (context) => DetilesScreen()),
+          );
         },
         onLongPress: () {
           cityList.remove(city.location!.name!);

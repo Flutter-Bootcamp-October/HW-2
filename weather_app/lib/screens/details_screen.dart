@@ -7,6 +7,7 @@ now we use currentCity
 */
 
 import 'package:flutter/material.dart';
+import 'package:weather_app/data/data.dart';
 import 'package:weather_app/global/global.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/screens/home_screen.dart';
@@ -16,7 +17,7 @@ import 'package:weather_app/widgets/details_card_widget.dart';
 
 class DetilesScreen extends StatelessWidget {
   DetilesScreen({super.key});
-  String conditionText = "lightnig" /*currentCity.current!.condition!.text!*/;
+  String conditionText = currentCity.current!.condition!.text!;
 
   @override
   Widget build(BuildContext context) {
@@ -41,12 +42,12 @@ class DetilesScreen extends StatelessWidget {
             left: 340,
             child: IconButton(
               onPressed: () {
-                if (cityList.contains(currentCity.location.name)) {
+                if (cityList.contains(currentCity.location!.name!)) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(
                           "${currentCity.location!.name!} is already saved")));
                 } else {
-                  cityList.add(currentCity.location.name);
+                  cityList.add(currentCity.location!.name!);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const HomeScreen()),

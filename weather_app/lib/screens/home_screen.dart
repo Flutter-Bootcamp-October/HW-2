@@ -4,6 +4,7 @@ import 'package:weather_app/consts/text.dart';
 import 'package:weather_app/data/data.dart';
 import 'package:weather_app/global/global.dart';
 import 'package:weather_app/models/weather_model.dart';
+import 'package:weather_app/screens/details_screen.dart';
 import 'package:weather_app/services/api_services.dart';
 import 'package:weather_app/widgets/home_widget.dart';
 
@@ -45,9 +46,9 @@ class HomeScreenState extends State<HomeScreen> {
                   if (response[0] == "OK") {
                     currentCity = response[1] as Weather;
                     Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => const DetailsScreen()),
-  );
+                      context,
+                      MaterialPageRoute(builder: (context) => DetilesScreen()),
+                    );
                   } else {
                     ScaffoldMessenger.of(context)
                         .showSnackBar(SnackBar(content: Text(response[0])));
