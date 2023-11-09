@@ -10,7 +10,7 @@ class CityName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       weather.location!.name!,
-      style: TextStyle(color:textColor, fontSize: 40),
+      style: TextStyle(color: textColor, fontSize: 30),
     );
   }
 }

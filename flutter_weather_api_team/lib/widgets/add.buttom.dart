@@ -3,8 +3,9 @@ import 'package:flutter_weather_api/constant/constant.dart';
 import 'package:flutter_weather_api/models/weather_model.dart';
 
 class AddButtom extends StatelessWidget {
-  const AddButtom({super.key, required this.weather});
+  const AddButtom({super.key, required this.weather, required this.themeColor});
   final Weather weather;
+  final Color themeColor;
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +14,9 @@ class AddButtom extends StatelessWidget {
           favoritCity.add(weather);
           print(weather.location!.name);
         },
-        child: const Text(
+        child:  Text(
           "Add",
-          style: TextStyle(color: white, fontSize: 18),
+          style: TextStyle(color: themeColor, fontSize: 18),
         ));
   }
 }
