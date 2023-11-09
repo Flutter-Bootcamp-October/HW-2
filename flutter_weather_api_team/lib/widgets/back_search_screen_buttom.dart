@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_weather_api/models/weather_model.dart';
 import 'package:flutter_weather_api/pages/search_screen.dart';
 
 class BackToSearchScreenButtom extends StatelessWidget {

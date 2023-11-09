@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_weather_api/constant/constant.dart';
 import 'package:flutter_weather_api/models/astronomy.dart';
 import 'package:flutter_weather_api/models/weather_model.dart';
-import 'package:flutter_weather_api/pages/search_screen.dart';
 import 'package:flutter_weather_api/widgets/add.buttom.dart';
 import 'package:flutter_weather_api/widgets/back_search_screen_buttom.dart';
 import 'package:flutter_weather_api/widgets/city_name.dart';
@@ -56,7 +55,6 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
             weather: widget.weather,
           ),
         ),
-
 
         Positioned(
           top: 20,
@@ -158,6 +156,3 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
     );
   }
 }
-
-
-

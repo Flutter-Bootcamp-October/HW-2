@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_api/constant/constant.dart';
-import 'package:flutter_weather_api/pages/country_weather_screen.dart';
-import 'package:flutter_weather_api/services/api_services.dart';
 import 'package:glass/glass.dart';
 
 class DisplayAddList extends StatefulWidget {
