@@ -51,9 +51,8 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
         Positioned(
           left: 320,
           top: 10,
-          child: AddButtom(
-            weather: widget.weather,
-          ),
+          child:
+              AddButtom(weather: widget.weather, themeColor: widget.themeColor),
         ),
 
         Positioned(
@@ -75,6 +74,7 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              height10,
               CityName(
                 weather: widget.weather,
                 textColor: widget.themeColor,

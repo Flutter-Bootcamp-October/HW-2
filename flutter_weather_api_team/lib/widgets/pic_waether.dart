@@ -55,7 +55,7 @@ class PicWeather extends StatelessWidget {
                                   ? Lottie.network('https://lottie.host/1d2ba0d2-8cff-4916-8ab6-89fb49c30bde/ZA9duzlMTC.json', height: 500, width: 500)
                                   : weather.current!.condition!.text!.contains('Partly') && weather.current!.isDay == 1
                                       ? Lottie.network('https://lottie.host/183df154-ec75-4b26-9dcc-d566a02a22cf/iECXK2otFZ.json', height: 500, width: 500)
-                                      : weather.current!.condition!.text == 'Partly Cloudy' && weather.current!.isDay == 0
+                                      : weather.current!.condition!.text!.contains("Partly") && weather.current!.isDay == 0
                                           ? Lottie.network('https://lottie.host/183df154-ec75-4b26-9dcc-d566a02a22cf/iECXK2otFZ.json', height: 500, width: 500)
                                           : Lottie.network('https://lottie.host/e080f028-c29e-4a8b-b4fa-4136c7a6e496/2QT2nwPym3.json', height: 500, width: 500)
     ]);
