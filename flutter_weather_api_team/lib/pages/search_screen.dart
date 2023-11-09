@@ -20,7 +20,9 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Color.fromARGB(255, 10, 13, 31),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,

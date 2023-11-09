@@ -6,6 +6,7 @@ import 'package:flutter_weather_api/pages/search_screen.dart';
 import 'package:flutter_weather_api/widgets/city_name.dart';
 import 'package:flutter_weather_api/widgets/country_name_and_date.dart';
 import 'package:flutter_weather_api/widgets/line_widget.dart';
+import 'package:flutter_weather_api/widgets/pic_waether.dart';
 import 'package:flutter_weather_api/widgets/state_weather.dart';
 import 'package:flutter_weather_api/widgets/temp_dgree.dart';
 import 'package:flutter_weather_api/widgets/container_info.dart';
@@ -50,11 +51,8 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
           left: 330,
           child: IconButton(
               onPressed: () {
-                // if(widget.weather.location!.name = favoritCity.){}
                 favoritCity.add(widget.weather);
-                //print(favoritCity);
-                setState(() {});
-                print(widget.weather.location!.name);
+                //print(widget.weather.location!.name);
               },
               icon: Icon(
                 Icons.favorite_outline_rounded,
@@ -63,19 +61,26 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
               )),
         ),
         Positioned(
-          child: IconButton(
-              onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return SearchScreen();
-                }));
-                setState(() {});
-              },
-              icon: Icon(
-                Icons.arrow_back_ios_new_rounded,
-                size: 40,
-                color: widget.themeColor,
-              )),
+          top: 20,
+          left: 10,
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const SearchScreen();
+              }));
+            },
+            child: Icon(
+              Icons.arrow_back_ios_new_rounded,
+              size: 40,
+              color: widget.themeColor,
+            ),
+          ),
         ),
+
+        Positioned(
+            child: PicWeather(
+          weather: widget.weather,
+        )),
 
         //---------------------- Information Weather -----------------------------
         Padding(
@@ -93,6 +98,7 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
                 textColor: widget.themeColor,
               ),
               height50,
+              height20,
               height50,
               height50,
               height20,
@@ -114,8 +120,7 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
                 weather: widget.weather,
                 textColor: widget.themeColor,
               ),
-              height50,
-              height10,
+              height30,
               LineWidget(
                 heightLine: 1,
                 widthLine: 35,
