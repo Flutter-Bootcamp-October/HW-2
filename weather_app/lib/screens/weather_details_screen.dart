@@ -36,17 +36,27 @@ class _WeatherDetailsScreenState extends State<WeatherDetailsScreen> {
               children: [
                 InkWell(
                   onTap: () {
-                    favouriteList.add(widget.weather);
-                    showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text("Added to favorite "),
-                            content: Lottie.asset(
-                              "assets/favorite.json",
-                            ),
-                          );
-                        });
+                    if (!favouriteList.contains(widget.weather)) {
+                      favouriteList.add(widget.weather);
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: Text("Added to favorite "),
+                              content: Lottie.asset(
+                                "assets/favorite.json",
+                              ),
+                            );
+                          });
+                    } else {
+                      showDialog(
+                          context: context,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: Text("city is added!"),
+                            );
+                          });
+                    }
                   },
                   child: const Icon(
                     Icons.favorite,
