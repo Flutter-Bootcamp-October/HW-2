@@ -19,6 +19,7 @@ class HomeWidget extends StatelessWidget {
         },
         onLongPress: () {
           cityList.remove(city.location!.name!);
+          // ignore: invalid_use_of_protected_member
           context.findAncestorStateOfType<HomeScreenState>()!.setState(() {});
         },
         child: ClipRRect(
