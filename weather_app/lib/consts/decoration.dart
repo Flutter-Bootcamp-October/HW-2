@@ -7,3 +7,7 @@ const InputDecoration searchBarDec = InputDecoration(
     border:
         OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(20))),
     hintText: "Enter City Name");
+
+
+
+
