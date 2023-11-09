@@ -1,68 +1,64 @@
 # HW-2
 
-## Description:
+The weather app enables the user to search for cities' weather and view the city's weather details. Also, the user can add the city's weather to their favourite and show it on the Home Screen. Also, the user can navigate between the Search page and the Home page using the navigation bar.
 
-Your task is to create a functional and user-friendly Weather app using Flutter. The app should accurately retrieve and display weather information based on the user's location or a location of their choice. Users should be able to view the current weather conditions, such as temperature, humidity, wind speed, and weather description (e.g., sunny, rainy, cloudy). All weather data should be fetched from a reliable weather API and displayed in a user-friendly manner.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ ## ScreenShots:
 
-## Rules & Guidelines
+**1- Search Page**
 
-1. **Group Work:** You and your group members are expected to work collaboratively on the capstone project. Each group member should contribute to the project, and collaboration among group members is encouraged to deliver a well-rounded and polished application.
+ **shadow for text field and icon button**
+ The user can search for a specific city by entering the city name in the text field and clicking on the search button.
 
-2. **Version Control (Git)**: Create a Git repository for your project. Commit frequently with descriptive messages to show your progress throughout the development.
+ 
+ ****with dark mode****
 
-3. **Clean Code**: Write code that is clear, well-organized, and follows standard coding conventions. Use meaningful variable and function names to enhance code readability. Maintain a consistent coding style across the project. Consider implementing the Clean Architecture principles to organize your codebase, separating concerns into different layers (e.g., presentation, domain, data) for better maintainability and scalability.
+<img width="263" alt="Screenshot 2023-11-08 223005" src="https://github.com/mahm-8/HW-2/assets/141933812/689a49dd-6fd1-405b-badb-e997cbf96e02">
+
+--------------------------------------------------------------------------------
+
+****with light mode****
 
 
-## Schedule & Deadlines:
+<img width="254" alt="Screenshot 2023-11-08 223529" src="https://github.com/mahm-8/HW-2/assets/141933812/fff1e2d9-7c21-41aa-a7d7-f312783b1e56">
 
-- Project Submission Deadline: 9/11/2023 – 9:59 AM
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Minimum Requirements:
+ **2- Details Page**
 
-1. Correct Structure:
-     Ensure that the application is built with the appropriate structure. Follow Flutter's best practices for organizing code and project files.
+On this page, the user can view the city's weather details of the searched city. it will be a scrolling page to show the city name, region, degree in Celsius, city weather conditions, and the last updated hour. Also wind, degree, pressure, and other city's weather details. 
+On this page, the user can add a city to their favourite list to show on the Home page by clicking on the favourite icon. after the user clicks on the favourite icon the city will be added to the list and a dialog alert box will show "city added" with image animation. if the city is added before a show dialogue will appear with "city is added!".
 
-2. Code Quality:
-   - The project code should follow Flutter's best practices for organizing code and project files.
-   - Your code should be clean, well-structured, and easy to understand.
-   - Use meaningful variable and function names to enhance code readability.
+<img width="254" alt="Details Page" src="https://github.com/RubaAlHilal/HW-2/assets/73358612/328aef3c-0545-4bf4-86c4-6c93d94ef95a">
 
-3. Data Representation: Treat weather data as objects using a model. Create a model class to define the structure of weather information.
+--------------------------------------------------------------------------------
+ **Animation:**
 
-4. App Design and User Experience:
-   - The app should have an intuitive and visually appealing user interface.
-   - Ensure that the design elements, colors, and fonts are consistent and pleasing to the eye.
-   - Users should be able to navigate the app easily and access all features without confusion.
-   - Use appropriate icons and graphics to represent weather conditions and forecast details.
 
-5. Error Handling: Implement proper error handling mechanisms for cases where the weather API data is not available or errors occur during data retrieval.
+https://github.com/RubaAlHilal/HW-2/assets/73358612/93f23515-d2ad-4320-aee3-b44f4dd432e7
 
-## Ideas for Extra Credit:
-- Dark Mode: Implement a dark mode option in the Weather app, allowing users to switch between light and dark themes based on their preferences. Ensure that the dark mode is visually appealing and does not compromise the app's user experience.
-- Location Autocomplete: Enhance the user experience by adding location autocomplete functionality to the app's search feature. Utilize a location-based API or service to provide suggestions as users type, making it easier for them to select their desired location.
-- Weather Animations: Add subtle animations to the app's UI to create a more engaging and dynamic user experience. For example, you could animate weather icons, temperature changes, or background transitions based on weather conditions.
-- Weather Forecast: Extend the app to display weather forecasts for the upcoming days, allowing users to plan ahead and stay prepared for changing weather conditions.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Delivery Requirements:
+ **3- Home Page**
 
-1. GitHub Submission: 
-   - Create a Fork from the project’s GitHub repository.
-   - Create a new branch with your name.
-   - Commit frequently with descriptive messages to show your progress.
-   - Finally, create a Pull Request to the project’s original repository containing your solution.
+On this page, the background changes depending on the selected city whether it is at the day it will be a light background colour or at night it will be a dark background colour. it will show "No cities added" if the user hasn't added a city to their favourite list. if the user has added to their favourite list it will list it here and also he can view the city's weather details by clicking on the city's container.
 
-2. Readme File:
-   - Provide a README.md file in the root directory of your riles.
-   - Provide a detailed and well-structured description of the project in the README file, including the following sections:
-     - Project Overview.
-     - Screenshots: Include relevant screenshots of the app to showcase its appearance and functionalities. Visuals can help users understand the app's design and layout.
+<img width="254" alt="HomePage" src="https://github.com/RubaAlHilal/HW-2/assets/73358612/c446421d-a259-4734-843b-9be7ff9e44c6">
 
-    
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Resources:
+ ## Video Recording
 
-- Dart Tutorials
-- Flutter Documentation
-- Flutter Tutorial by GeeksforGeeks
 
-Good luck with your exam project! If you have any general questions or need guidance, don't hesitate to reach out to the instructor. Happy coding!
+https://github.com/RubaAlHilal/HW-2/assets/73358612/74b00b32-32f8-413a-9530-1cc166fe6eb7
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ ## Libraries used:
+ 
+ - HTTP: to retrieve data from API.
+ - Lottie: to add animation to the app.
+ - dot_navigation_bar: to add a floating navigation bar.
+
