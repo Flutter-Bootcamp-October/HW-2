@@ -1,22 +1,24 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class WeatherDetails extends StatelessWidget {
   WeatherDetails(
       {super.key,
       required this.icon,
       required this.text,
       required this.info,
+      required this.color,
       this.unit});
   String icon;
   String text;
   String info;
   String? unit;
+  Color? color;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 150,
       width: 150,
-      // color: Colors.amber,
       child: Column(
         children: [
           SizedBox(height: 16),
@@ -24,7 +26,7 @@ class WeatherDetails extends StatelessWidget {
             icon,
             width: 40,
             height: 40,
-            color: Color(0xffd1d1d0),
+            color: color,
             // color: Color(0xffd1d1d0),
           ),
           SizedBox(height: 8),
@@ -32,6 +34,7 @@ class WeatherDetails extends StatelessWidget {
             text,
             style: TextStyle(
               color: Colors.white,
+              fontWeight: FontWeight.w700,
               fontSize: 20,
             ),
           ),

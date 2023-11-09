@@ -61,22 +61,25 @@ class _SearchScreenState extends State<SearchScreen> {
                     return Text('');
                   } else if (snapshot.hasData && snapshot.data != null) {
                     final weatherData = snapshot.data!;
-                    if (weatherData.location.name
+                    if (weatherData.location!.name
                         .toString()
                         .toLowerCase()
                         .contains(searchText.toLowerCase())) {
                       cityList.add(weatherData);
-
                       return Column(children: [
                         if (cityList.isNotEmpty)
-                          for (var country in cityList)
-                            WeatherCard(weatherData: country)
+                          for (var city in cityList.reversed.toList())
+                            WeatherCard(weatherData: city)
+                        else
+                          Container()
                       ]);
+                    } else {
+                      return Text('');
                     }
                   }
                   return const SizedBox();
                 },
-              )
+              ),
             ],
           ),
         ),
