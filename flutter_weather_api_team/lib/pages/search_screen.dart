@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_api/constant/constant.dart';
 import 'package:flutter_weather_api/pages/country_weather_screen.dart';
@@ -78,10 +76,11 @@ class _SearchScreenState extends State<SearchScreen> {
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.vertical,
-                child: ListView.builder(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) => SizedBox(),
                   shrinkWrap: true,
                   scrollDirection: Axis.vertical,
-                  // itemCount: favoritCity.length,
+                  itemCount: favoritCity.length,
                   itemBuilder: (context, index) {
                     for (var element in favoritCity) {
                       return Padding(

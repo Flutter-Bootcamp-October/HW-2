@@ -50,6 +50,7 @@ class _AllWeatherInfoState extends State<AllWeatherInfo> {
           left: 330,
           child: IconButton(
               onPressed: () {
+                // if(widget.weather.location!.name = favoritCity.){}
                 favoritCity.add(widget.weather);
                 //print(favoritCity);
                 setState(() {});
