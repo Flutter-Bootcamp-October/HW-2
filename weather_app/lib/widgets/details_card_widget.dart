@@ -21,11 +21,11 @@ class DetailCard extends StatelessWidget {
   const DetailCard(
       {super.key,
       required this.cardtitle,
-      required this.cardImage,
+      required this.cardIcon,
       required this.cardValue});
 
   final String cardtitle;
-  final String cardImage;
+  final IconData cardIcon;
   final String cardValue;
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class DetailCard extends StatelessWidget {
             padding: const EdgeInsets.only(left: 16, top: 8),
             child: DetailCardTitle(
               cardTitle: cardtitle,
-              cardImage: cardImage, 
+              cardIcon: cardIcon,
             ),
           ),
           Column(

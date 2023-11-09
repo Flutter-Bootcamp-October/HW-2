@@ -15,7 +15,8 @@ import 'package:weather_app/widgets/details_card_title_widget.dart';
 import 'package:weather_app/widgets/details_card_widget.dart';
 
 class DetilesScreen extends StatelessWidget {
-  const DetilesScreen({super.key});
+  DetilesScreen({super.key});
+  String conditionText = "lightnig" /*currentCity.current!.condition!.text!*/;
 
   @override
   Widget build(BuildContext context) {
@@ -63,11 +64,47 @@ class DetilesScreen extends StatelessWidget {
           Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.only(top: 120),
+              padding: const EdgeInsets.only(top: 80),
               child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    if (conditionText == "sunny")
+                      Image.network(
+                        "https://cdn1.iconfinder.com/data/icons/weather-624/64/Weather_Sun_warm_weather_icon-512.png",
+                        width: 100,
+                        height: 100,
+                      )
+                    else if (conditionText == "cloudy")
+                      Image.network(
+                        "https://cdn-icons-png.flaticon.com/512/6889/6889878.png",
+                        width: 100,
+                        height: 100,
+                      )
+                    else if (conditionText == "stormy")
+                      Image.network(
+                        "https://cdn-icons-png.flaticon.com/512/4005/4005782.png",
+                        width: 100,
+                        height: 100,
+                      )
+                    else if (conditionText == "rainy")
+                      Image.network(
+                        "https://cdn-icons-png.flaticon.com/512/8647/8647888.png",
+                        width: 100,
+                        height: 100,
+                      )
+                    else if (conditionText == "windy")
+                      Image.network(
+                        "https://cdn-icons-png.flaticon.com/512/2264/2264653.png",
+                        width: 100,
+                        height: 100,
+                      )
+                    else if (conditionText == "lightnig")
+                      Image.network(
+                        "https://cdn1.iconfinder.com/data/icons/weather-forecast-meteorology-color-1/128/weather-thunderstorm-512.png",
+                        width: 100,
+                        height: 100,
+                      ),
                     Text(
                       currentCity.location!.name!,
                       style: const TextStyle(
@@ -102,14 +139,14 @@ class DetilesScreen extends StatelessWidget {
                 children: [
                   DetailCard(
                       cardtitle: "UV INDEX",
-                      cardImage: "weather_app/assets/images/uv_detail.png",
+                      cardIcon: Icons.sunny,
                       cardValue: currentCity.current!.uv!.toString()),
                   const SizedBox(
                     width: 12,
                   ),
                   DetailCard(
                     cardtitle: "WIND Speed",
-                    cardImage: "weather_app/assets/images/detail_wind.png",
+                    cardIcon: Icons.air,
                     cardValue: currentCity.current!.windKph!.toString(),
                   )
                 ],
@@ -124,7 +161,7 @@ class DetilesScreen extends StatelessWidget {
                 children: [
                   DetailCard(
                     cardtitle: "HUMIDITY",
-                    cardImage: "weather_app/assets/images/detail_humidity.png",
+                    cardIcon: Icons.water,
                     cardValue: currentCity.current!.humidity!.toString(),
                   ),
                   const SizedBox(
@@ -132,7 +169,7 @@ class DetilesScreen extends StatelessWidget {
                   ),
                   DetailCard(
                       cardtitle: "Wind Direction",
-                      cardImage: "weather_app/assets/images/detail_wind.png",
+                      cardIcon: Icons.air,
                       cardValue: currentCity.current!.pressureIn!.toString())
                 ],
               ),

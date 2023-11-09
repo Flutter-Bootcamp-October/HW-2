@@ -18,15 +18,12 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   
 
+
 flutter:
-  uses-material-design: true
   assets:
     - assets/
-    - assets/images/
-    - weather_app/assets/images/detail_humidity.png
-    - weather_app/assets/images/detail_wind.png
-    - weather_app/assets/images/uv_detail.png
 
+  uses-material-design: true
 
 
     
