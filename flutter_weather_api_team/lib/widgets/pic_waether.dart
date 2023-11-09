@@ -10,16 +10,12 @@ class PicWeather extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(children: [
       weather.current!.condition!.text == "Sunny" && weather.current!.isDay == 1
-          ? Lottie.network(
-              'https://lottie.host/e080f028-c29e-4a8b-b4fa-4136c7a6e496/2QT2nwPym3.json',
-              height: 500,
-              width: 500)
+          ? Lottie.network('https://lottie.host/e080f028-c29e-4a8b-b4fa-4136c7a6e496/2QT2nwPym3.json',
+              height: 500, width: 500)
           : weather.current!.condition!.text == "Clear" &&
                   weather.current!.isDay == 0
-              ? Lottie.network(
-                  'https://lottie.host/ba24cc24-90af-4cd9-b770-6626b3539826/FqpgLNr1tt.json',
-                  height: 500,
-                  width: 500)
+              ? Lottie.network('https://lottie.host/ba24cc24-90af-4cd9-b770-6626b3539826/FqpgLNr1tt.json',
+                  height: 500, width: 500)
               : weather.current!.condition!.text!.contains('rain') ||
                       weather.current!.condition!.text!.contains('sleet') &&
                           weather.current!.isDay == 0
@@ -27,13 +23,15 @@ class PicWeather extends StatelessWidget {
                       'https://lottie.host/c2265470-7bd5-4c61-927a-c77b15127cb6/nUocFgpfcC.json',
                       height: 500,
                       width: 500)
-                  : weather.current!.condition!.text!.contains('rain') &&
-                          weather.current!.isDay == 1
+                  : weather.current!.condition!.text!.contains('rain') ||
+                          weather.current!.condition!.text!.contains('drizzle') &&
+                              weather.current!.isDay == 1
                       ? Lottie.network(
                           'https://lottie.host/df37047e-cdd8-4f25-87e4-b5028bd5653f/JJdwbWVfOK.json',
                           height: 500,
                           width: 500)
-                      : weather.current!.condition!.text! == 'Cloudy ' &&
+                      : weather.current!.condition!.text! == 'Cloudy ' ||
+                      weather.current!.condition!.text! == 'Partly cloudy ' ||
                               weather.current!.condition!.text! == 'Overcast '
                           ? Lottie.network(
                               'https://lottie.host/46b655bd-a850-4d28-a0e8-c2ce7a8b5314/RpF0sWCzwN.json',
@@ -50,10 +48,7 @@ class PicWeather extends StatelessWidget {
                                       'https://lottie.host/1d2ba0d2-8cff-4916-8ab6-89fb49c30bde/ZA9duzlMTC.json',
                                       height: 500,
                                       width: 500)
-                                  : Lottie.network(
-                                      'https://lottie.host/e080f028-c29e-4a8b-b4fa-4136c7a6e496/2QT2nwPym3.json',
-                                      height: 500,
-                                      width: 500)
+                                  : Lottie.network('https://lottie.host/e080f028-c29e-4a8b-b4fa-4136c7a6e496/2QT2nwPym3.json', height: 500, width: 500)
     ]);
   }
 }
