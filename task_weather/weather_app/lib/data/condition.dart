@@ -1,0 +1,33 @@
+Map conditionImage = {
+  "Sunny": "assets/images/sunny_cloud.gif",
+  "Clear": "assets/images/sunny_cloud.gif",
+  "Partly Cloudy": "assets/images/sunny_cloud.gif",
+  "Cloudy": "assets/images/sunny_cloud.gif",
+  "Patchy rain nearby": "assets/images/light_rain.gif",
+  "Patchy snow nearby": "assets/images/snow.gif",
+  "Blowing snow": "assets/images/snow.gif",
+  "Blizzard": "assets/images/snow.gif",
+  "Light rain": "assets/images/light_rain.gif",
+  "Patchy light drizzle": "assets/images/snow.gif",
+  "Moderate rain": "assets/images/rein.gif",
+  "Heavy rain at times": "ssets/images/rein.gif",
+  "Heavy rain": "ssets/images/rein.gif",
+  "Heavy snow": "assets/images/snow.gif",
+};
+
+Map iconImage = {
+  "Sunny": "assets/images/sunny.png",
+  "Clear": "assets/images/clear.png",
+  "Partly Cloudy": "assets/images/cloudy.png",
+  "Cloudy": "assets/images/cloudy.png",
+  "Patchy rain nearby": "assets/images/rainy.png",
+  "Patchy snow nearby": "assets/images/snow.png",
+  "Blowing snow": "assets/images/snow.png",
+  "Blizzard": "assets/images/snow.png",
+  "Light rain": "assets/images/rainy.png",
+  "Patchy light drizzle": "assets/images/rainy.png",
+  "Moderate rain": "assets/images/rainy.png",
+  "Heavy rain at times": "assets/images/rainy.png",
+  "Heavy rain": "assets/images/rainy.png",
+  "Heavy snow": "assets/images/snow.png",
+};
