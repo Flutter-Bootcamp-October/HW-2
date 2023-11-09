@@ -41,12 +41,12 @@ class DetilesScreen extends StatelessWidget {
             left: 340,
             child: IconButton(
               onPressed: () {
-                if (weatherList.contains(currentCity)) {
+                if (cityList.contains(currentCity.location.name)) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                       content: Text(
                           "${currentCity.location!.name!} is already saved")));
                 } else {
-                  weatherList.add(currentCity);
+                  cityList.add(currentCity.location.name);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const HomeScreen()),
