@@ -1,5 +1,6 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app/models/glopals.dart';
 import 'package:weather_app/screens/home_screen.dart';
 import 'package:weather_app/screens/search_screen.dart';
 
@@ -14,7 +15,7 @@ class _WeatherNavigationBarState extends State<WeatherNavigationBar> {
   var _selectedTab = _SelectedTab.home;
   int index = 0;
   List screen = [
-    Home(),
+    Home(city: currentCity),
     SearchScreen(),
   ];
   @override
