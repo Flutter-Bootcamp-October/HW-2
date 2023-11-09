@@ -32,9 +32,11 @@ class HomeWidget extends StatelessWidget {
           child: Container(
             height: 120,
             width: MediaQuery.of(context).size.width - 100,
-            color: city.current!.isDay! == 1
-                ? Colors.lightBlue
-                : const Color.fromARGB(255, 1, 34, 49),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: city.current!.isDay! == 0
+                        ? [const Color(0xff536976), const Color(0xff292E49)]
+                        : [const Color(0xff00D2FF), const Color(0xff3A7BD5)])),
             child: Padding(
               padding: const EdgeInsets.all(20.0),
               child: Row(
