@@ -72,17 +72,35 @@ class Current {
     required this.feelslikeC,
     required this.isday,
     required this.condition,
+    required this.windSpeed,
+    required this.windDir,
+    required this.Humidity,
+    required this.visibility,
+    required this.uv,
+    required this.tempf,
   });
 
   late final double tempC;
   late final double feelslikeC;
   late final int isday;
   late final Condition condition;
-
+  late final double windSpeed;
+  late final String windDir;
+  late final int Humidity;
+  late final double visibility;
+  late final double uv;
+  late final double tempf;
   Current.fromJson(Map<String, dynamic> json) {
     tempC = json['temp_c'] ?? 0.0;
+    tempf = json['temp_f'] ?? 0.0;
     feelslikeC = json['feelslike_c'] ?? 0.0;
     isday = json['is_day'] ?? 0;
+    windSpeed = json['wind_kph'] ?? 0.0;
+    windDir = json['wind_dir'] ?? '';
+    Humidity = json['humidity'] ?? 0;
+    visibility = json['vis_km'] ?? 0.0;
+    uv = json['uv'] ?? 0.0;
+
     condition = Condition.fromJson(json['condition'] ?? {});
   }
 
@@ -91,6 +109,12 @@ class Current {
     _data['temp_c'] = tempC;
     _data['feelslike_c'] = feelslikeC;
     _data['is_day'] = isday;
+    _data['temp_f'] = tempf;
+    _data['wind_kph'] = windSpeed;
+    _data['wind_dir'] = windDir;
+    _data['humidity'] = Humidity;
+    _data['vis_km'] = visibility;
+    _data['uv'] = uv;
     _data['condition'] = condition.toJson();
     return _data;
   }

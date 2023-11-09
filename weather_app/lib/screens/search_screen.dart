@@ -68,8 +68,9 @@ class _SearchScreenState extends State<SearchScreen> {
                       cityList.add(weatherData);
 
                       return Column(children: [
-                        for (var country in cityList)
-                          WeatherCard(weatherData: country)
+                        if (cityList.isNotEmpty)
+                          for (var country in cityList)
+                            WeatherCard(weatherData: country)
                       ]);
                     }
                   }
