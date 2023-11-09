@@ -70,37 +70,37 @@ class DetilesScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    if (conditionText == "sunny")
+                    if (conditionText == "Sunny")
                       Image.network(
                         "https://cdn1.iconfinder.com/data/icons/weather-624/64/Weather_Sun_warm_weather_icon-512.png",
                         width: 100,
                         height: 100,
                       )
-                    else if (conditionText == "cloudy")
+                    else if (conditionText == "Cloudy")
                       Image.network(
                         "https://cdn-icons-png.flaticon.com/512/6889/6889878.png",
                         width: 100,
                         height: 100,
                       )
-                    else if (conditionText == "stormy")
+                    else if (conditionText == "Stormy")
                       Image.network(
                         "https://cdn-icons-png.flaticon.com/512/4005/4005782.png",
                         width: 100,
                         height: 100,
                       )
-                    else if (conditionText == "rainy")
+                    else if (conditionText == "Rainy")
                       Image.network(
                         "https://cdn-icons-png.flaticon.com/512/8647/8647888.png",
                         width: 100,
                         height: 100,
                       )
-                    else if (conditionText == "windy")
+                    else if (conditionText == "Windy")
                       Image.network(
                         "https://cdn-icons-png.flaticon.com/512/2264/2264653.png",
                         width: 100,
                         height: 100,
                       )
-                    else if (conditionText == "lightnig")
+                    else if (conditionText == "Lightnig")
                       Image.network(
                         "https://cdn1.iconfinder.com/data/icons/weather-forecast-meteorology-color-1/128/weather-thunderstorm-512.png",
                         width: 100,
