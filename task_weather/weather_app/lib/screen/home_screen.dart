@@ -85,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                   ),
                   FutureBuilder(
-                    future: getDataId(cityController.text),
+                    future: getDataCity(cityController.text),
                     builder: (context, snapshot) {
                       if (snapshot.hasData) {
                         return Padding(
@@ -107,6 +107,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       fontSize: 40, color: Colors.white),
                                 ),
                               ),
+                              Positioned(
+                                  top: 3,
+                                  left: 122,
+                                  child: Image.asset(
+                                    iconImage[snapshot.data['current']
+                                        ['condition']['text']],
+                                    width: 270,
+                                    height: 120,
+                                  )),
                               Positioned(
                                 top: 139,
                                 left: 10,

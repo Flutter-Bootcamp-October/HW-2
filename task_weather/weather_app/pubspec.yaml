@@ -24,5 +24,11 @@ flutter:
     - assets\images\light_rain.gif
     - assets\images\rein.gif
     - assets\images\snow.gif
-    - assets\images\sunny_cloud.gif
-    
+    - assets\images\sunny_cloud.gif  
+    - assets\images\clear.png
+    - assets\images\cloudy.png
+    - assets\images\fog.png
+    - assets\images\rainy.png
+    - assets\images\storm.png
+    - assets\images\sunny.png
+    - assets\images\snow.png

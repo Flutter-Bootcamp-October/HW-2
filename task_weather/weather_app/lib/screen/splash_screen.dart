@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:weather_app/screen/home_screen.dart';
 import 'package:weather_app/widgets/background.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
+
+  @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  bool light = true;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +45,7 @@ class SplashScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => HomeScreen(),
+                      builder: (context) => const HomeScreen(),
                     ),
                   );
                 },
@@ -57,7 +64,7 @@ class SplashScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
