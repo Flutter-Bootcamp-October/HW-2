@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:weather_app/functions/get_weather_image.dart';
+import 'package:weather_app/models/glopals.dart';
 import 'package:weather_app/models/models.dart';
-import 'package:weather_app/services/api/get_weather_data_by_city.dart';
+import 'package:weather_app/screens/home_screen.dart';
 
 class WeatherCard extends StatelessWidget {
   const WeatherCard({
@@ -14,24 +15,32 @@ class WeatherCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        currentCity = weatherData.location!.name.toString();
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => Home(
+                      city: weatherData.location!.name,
+                    )));
+      },
       child: Stack(
         children: [
           Padding(
             padding: const EdgeInsets.all(16),
             child: Stack(
               children: [
-                if (weatherData.current.isday == 0)
+                if (weatherData.current!.isday == 0)
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                        getWeatherImage(weatherData.current.condition.code)[0]),
+                    child: Image.asset(getWeatherImage(
+                        weatherData.current!.condition.code!)[0]),
                   ),
-                if (weatherData.current.isday == 1)
+                if (weatherData.current!.isday == 1)
                   ClipRRect(
                     borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                        getWeatherImage(weatherData.current.condition.code)[2]),
+                    child: Image.asset(getWeatherImage(
+                        weatherData.current!.condition.code!)[2]),
                   ),
                 Container(
                   padding: const EdgeInsets.all(16),
@@ -47,7 +56,7 @@ class WeatherCard extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                '${weatherData.current.tempC}°C',
+                                '${weatherData.current!.tempC}°C',
                                 style: const TextStyle(
                                     fontSize: 40, color: Colors.white),
                               ),
@@ -58,7 +67,7 @@ class WeatherCard extends StatelessWidget {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
-                                    weatherData.location.region,
+                                    weatherData.location!.name!,
                                     style: const TextStyle(
                                         fontSize: 16, color: Colors.white),
                                   ),
@@ -74,22 +83,22 @@ class WeatherCard extends StatelessWidget {
               ],
             ),
           ),
-          if (weatherData.current.isday == 0)
+          if (weatherData.current!.isday == 0)
             Positioned(
               right: 30,
               top: 0,
               child: Image.asset(
-                getWeatherImage(weatherData.current.condition.code)[1],
+                getWeatherImage(weatherData.current!.condition.code!)[1],
                 width: 80,
                 height: 80,
               ),
             ),
-          if (weatherData.current.isday == 1)
+          if (weatherData.current!.isday == 1)
             Positioned(
               right: 30,
               top: 0,
               child: Image.asset(
-                getWeatherImage(weatherData.current.condition.code)[3],
+                getWeatherImage(weatherData.current!.condition.code!)[3],
                 width: 80,
                 height: 80,
               ),
