@@ -16,6 +16,10 @@ class HomeWidget extends StatelessWidget {
         onTap: () {
           currentCity = city;
           //push to details screen
+          Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => const DetailsScreen()),
+  );
         },
         onLongPress: () {
           cityList.remove(city.location!.name!);
