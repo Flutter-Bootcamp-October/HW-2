@@ -10,8 +10,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool light = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
