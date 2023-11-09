@@ -28,7 +28,7 @@ The weather app enables the user to search for cities' weather and view the city
  **2- Details Page**
 
 On this page, the user can view the city's weather details of the searched city. it will be a scrolling page to show the city name, region, degree in Celsius, city weather conditions, and the last updated hour. Also wind, degree, pressure, and other city's weather details. 
-On this page, the user can add a city to their favourite list to show on the Home page by clicking on the favourite icon. after the user clicks on the favourite icon the city will be added to the list and a dialog alert box will show "city added" with image animation.
+On this page, the user can add a city to their favourite list to show on the Home page by clicking on the favourite icon. after the user clicks on the favourite icon the city will be added to the list and a dialog alert box will show "city added" with image animation. if the city is added before a show dialogue will appear with "city is added!".
 
 <img width="254" alt="Details Page" src="https://github.com/RubaAlHilal/HW-2/assets/73358612/328aef3c-0545-4bf4-86c4-6c93d94ef95a">
 
